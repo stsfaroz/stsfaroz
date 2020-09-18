@@ -4,7 +4,7 @@
 
 [![Linkedin: Salman Faroz](https://img.shields.io/badge/-Tina_Zhou_Hui-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/salman-faroz-data-scientist/)](https://www.linkedin.com/in/salman-faroz-data-scientist/)
 [![GitHub Salman](https://img.shields.io/github/followers/stsfaroz?label=follow&style=social)](https://github.com/stsfaroz)
-[![Kaggle Salman](https://storage.scolary.com/storage/file/public/71b68248-ba0a-4b26-b15f-0c77cdf341cd.svg)](https://github.com/stsfaroz)
+[![Kaggle Salman](https://storage.scolary.com/storage/file/public/71b68248-ba0a-4b26-b15f-0c77cdf341cd.svg =100x20)](https://www.kaggle.com/salmanfaroz)
 
 
 #### Data Sc:
