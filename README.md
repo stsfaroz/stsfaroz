@@ -22,5 +22,5 @@
 - Gaming 🎮
 
 ## Future Goals 💭
-- Startup , How ? 🤔 I dont know
-    - Send me your resume after that ,  not now. 😆 . Preference will be given as FIFO
+- Startup , How ? 🤔 I don't know
+    - Send me your resume after i started ,  not now. 😆 . Preference will be given as FIFO
