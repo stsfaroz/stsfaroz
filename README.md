@@ -23,4 +23,4 @@
 
 ## Future Goals 💭
 - Startup , How ? 🤔 I don't know
-    - Send me your resume after i started ,  not now. 😆 . Preference will be given as FIFO
+    - Send me your resume after i started ,  not now. 😆 . Preference will be given as FCFS
