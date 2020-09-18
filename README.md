@@ -7,7 +7,6 @@
 [<img src="https://storage.scolary.com/storage/file/public/71b68248-ba0a-4b26-b15f-0c77cdf341cd.svg" width=25 height=25>](https://www.kaggle.com/salmanfaroz)
 
 
-#### Data Sc:
 - Frontend running on javascript and react
 - Backend is python and flask
 - SQL database via SQL alchemy
