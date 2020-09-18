@@ -1,16 +1,25 @@
-### Hi there 👋
+## Hi, I am Salman Faroz
 
-<!--
-**stsfaroz/stsfaroz** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+  Trying to make people's lives better with Artificial intelligence, I personally care about Medical Diagnosis using Machine Learning, saving Millions of lives using Machine learning can be possible In coming years, I'm looking forward to it. 
 
-Here are some ideas to get you started:
+[![Linkedin: Tina_Zhou_Hui](https://img.shields.io/badge/-Tina_Zhou_Hui-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/tinazhouhui/)](https://www.linkedin.com/in/tinazhouhui/)
+[![GitHub Tina](https://img.shields.io/github/followers/tinazhouhui?label=follow&style=social)](https://github.com/tinazhouhui)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### Currently, I am working on my pet project 👉 [eScootie](http://escootie.net/) 🛴👈 (Coming soon!)
+Being an electric scooter rider myself, I know how annoying cobblestones can be (they already cost me two mudguards...😔). This app is a community driven route planner (I need minions to input data 😏), that would avoid these mudguard killers. 
+
+#### Development:
+- Frontend running on javascript and react
+- Backend is python and flask
+- SQL database via SQL alchemy
+
+#### Infrastructure
+- Serverless infrastructure running on AWS
+- Deployment using Github actions
+
+## I have also written few articles on the basic concepts of OpenCV! Would love some feedback!
+- [Convolution](https://dev.to/tinazhouhui/discovering-open-cv-using-python-2iak)
+- [Edge Detection](https://dev.to/tinazhouhui/discovering-opencv-using-python-edge-detection-185g)
+- [Gamma corrrection](https://dev.to/tinazhouhui/discovering-opencv-with-python-gamma-correction-3cnh)
+- [Coin detection](https://dev.to/tinazhouhui/coin-detection-discovering-opencv-with-python-1ka1)
+- [Coin amount calculation](https://dev.to/tinazhouhui/coin-amount-calculation-discovering-opencv-with-python-52gn)
