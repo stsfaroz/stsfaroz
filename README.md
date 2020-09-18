@@ -2,8 +2,8 @@
 
   Trying to make people's lives better with Artificial intelligence, I personally care about Medical Diagnosis using Machine Learning, saving Millions of lives using Machine learning can be possible In coming years, I'm looking forward to it. 
 
-[![Linkedin: Tina_Zhou_Hui](https://img.shields.io/badge/-Tina_Zhou_Hui-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/tinazhouhui/)](https://www.linkedin.com/in/tinazhouhui/)
-[![GitHub Tina](https://img.shields.io/github/followers/tinazhouhui?label=follow&style=social)](https://github.com/tinazhouhui)
+[![Linkedin: Tina_Zhou_Hui](https://img.shields.io/badge/-Tina_Zhou_Hui-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/salman-faroz-data-scientist/)](https://www.linkedin.com/in/salman-faroz-data-scientist/)
+[![GitHub Salman](https://img.shields.io/github/followers/stsfaroz?label=follow&style=social)](https://github.com/stsfaroz)
 
 ### Currently, I am working on my pet project 👉 [eScootie](http://escootie.net/) 🛴👈 (Coming soon!)
 Being an electric scooter rider myself, I know how annoying cobblestones can be (they already cost me two mudguards...😔). This app is a community driven route planner (I need minions to input data 😏), that would avoid these mudguard killers. 
