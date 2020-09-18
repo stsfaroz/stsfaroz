@@ -4,7 +4,7 @@
 [<img src="https://storage.scolary.com/storage/file/public/71b68248-ba0a-4b26-b15f-0c77cdf341cd.svg" width=25 height=25>](https://www.kaggle.com/salmanfaroz)
 [<img src="https://miro.medium.com/max/390/1*emiGsBgJu2KHWyjluhKXQw.png" width=25 height=25>](https://medium.com/@salmanfaroz)
 
-  - I beleive myself as a programmer ,  I've done great projects , done worst projects , done many mistakes , solved many problems , 
+  - I believe myself as a programmer ,  I've done great projects , done worst projects , done many mistakes , solved many problems , 
   what else do you expect ?  🔮
   
   
