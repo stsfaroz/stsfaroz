@@ -9,9 +9,9 @@
   
 #### Working in technologies like
 ``` 
- 🧠 A.I. | Machine learning | Deep learning | Computer Vision | NLP |
+ 🧠 A.I. | Machine learning | Deep learning | Computer Vision | NLP | Analytics | 
  ```
-
+ Sleeping and Eating while model is training ⌛
 
 #### Enthusiast :
 - Blockchain 🧑🏻‍💻
