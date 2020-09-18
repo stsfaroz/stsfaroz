@@ -4,12 +4,13 @@
 [<img src="https://storage.scolary.com/storage/file/public/71b68248-ba0a-4b26-b15f-0c77cdf341cd.svg" width=25 height=25>](https://www.kaggle.com/salmanfaroz)
 [<img src="https://miro.medium.com/max/390/1*emiGsBgJu2KHWyjluhKXQw.png" width=25 height=25>](https://medium.com/@salmanfaroz)
 
-  - Trying to make people's lives better with Artificial intelligence, I personally care about Medical Diagnosis using Machine Learning, saving Millions of lives using Machine learning can be possible In coming years, I'm looking forward to it. 🔮
- 
+  - I beleive myself as a programmer ,  I've done great projects , done worst projects , done many mistakes , solved many problems , 
+  what else do you expect ?  🔮
+  
   
 #### Working in technologies like
 ``` 
- 🧠 A.I. | Machine learning | Deep learning | Computer Vision | NLP | Analytics | 
+ 🧠 A.I. | Machine learning | Deep learning | Computer Vision | NLP | Analytics | Web Developement |
  ```
  Sleeping and Eating while model is training ⌛
 
