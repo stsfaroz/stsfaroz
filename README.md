@@ -1,13 +1,13 @@
-## Hi, I am Salman Faroz
+## Hi, I am Salman Faroz  🧑
 
+  - Trying to make people's lives better with Artificial intelligence, I personally care about Medical Diagnosis using Machine Learning, saving Millions of lives using Machine learning can be possible In coming years, I'm looking forward to it. 🔮
+ 
+  
 Love to work in
 ``` 
- A.I. 
- Machine learning
- Deep learning
+ 🧠 A.I. | Machine learning | Deep learning | Computer Vision | NLP |
  ```
- 
-  - Trying to make people's lives better with Artificial intelligence, I personally care about Medical Diagnosis using Machine Learning, saving Millions of lives using Machine learning can be possible In coming years, I'm looking forward to it. ❤️ 
+
 
 [![Linkedin: Salman Faroz](https://img.shields.io/badge/-stsfaroz-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/salman-faroz-data-scientist/)](https://www.linkedin.com/in/salman-faroz-data-scientist/)
 [![GitHub Salman](https://img.shields.io/github/followers/stsfaroz?label=follow&style=social)](https://github.com/stsfaroz)
