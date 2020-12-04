@@ -1,7 +1,7 @@
 ## Hi, I am Salman Faroz  🧑
 [![Linkedin: Salman Faroz](https://img.shields.io/badge/-stsfaroz-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/salman-faroz-data-scientist/)](https://www.linkedin.com/in/salman-faroz-data-scientist/)
 
-  - I believe myself as a programmer ,  I've done great projects , done worst projects , done many mistakes , solved many problems , 
+  - I've done great projects , done worst projects , done many mistakes , solved many problems , 
   what else do you expect ?  🔮
   
   
