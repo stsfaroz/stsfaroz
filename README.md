@@ -13,7 +13,8 @@
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=stsfaroz&layout=compact)](https://github.com/stsfaroz/github-readme-stats)
 
-![salman's github stats](https://github-readme-stats.vercel.app/api?username=stsfaroz&show_icons=true&theme=Gradient)
+
+![salman's github stats](https://github-readme-stats.vercel.app/api?username=stsfaroz&show_icons=true&theme=radical)
 
 
 #### Enthusiast :
