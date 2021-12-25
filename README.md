@@ -6,7 +6,7 @@
   
 #### Working in technologies like
 ``` 
- 🧠 A.I. | Machine learning | Deep learning | Computer Vision | NLP | Analytics | Web Developement |
+Machine learning | Deep learning | Computer Vision | NLP | Analytics | Web Developement |
  ```
  Sleeping and Eating while model is training ⌛
 
