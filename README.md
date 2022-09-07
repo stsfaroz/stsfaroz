@@ -10,9 +10,6 @@ Machine learning | Deep learning | Computer Vision | NLP | Analytics | Web Devel
  ```
  Sleeping and Eating while model is training ⌛
 
-![salman's github stats](https://github-readme-stats.vercel.app/api?username=stsfaroz&show_icons=true&theme=radical)
-
-
 #### Enthusiast :
 - Blockchain 🧑🏻‍💻
 - Virtual Reality 👓
