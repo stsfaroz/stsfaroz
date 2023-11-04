@@ -8,16 +8,4 @@
 ``` 
 Machine learning | Deep learning | Computer Vision | NLP | Analytics | Web Developement |
  ```
- Sleeping and Eating while model is training ⌛
 
-#### Enthusiast :
-- Blockchain 🧑🏻‍💻
-- Virtual Reality 👓
-
-#### Hobbies :
-- Netflix 🎥 
-- Gaming 🎮
-
-## Future Goals 💭
-- Startup , How ? 🤔 I don't know
-    - Send me your resume after i started ,  not now. 😆 . Preference will be given as FCFS
