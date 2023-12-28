@@ -1,1 +1,3 @@
 ## Salman Faroz 🧑
+
+Human
