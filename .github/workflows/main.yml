@@ -26,6 +26,15 @@ jobs:
       - uses: lowlighter/metrics@latest
         with:
           template: terminal
+          filename: contributions.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: ""
+          config_timezone: Asia/Kolkata
+          plugin_notable: yes
+          plugin_notable_from: all
+      - uses: lowlighter/metrics@latest
+        with:
+          template: terminal
           filename: metrics.terminal.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: header, metadata
