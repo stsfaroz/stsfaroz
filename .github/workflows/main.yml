@@ -16,10 +16,17 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
+          filename: iso_calender.svg
           token: ${{ secrets.METRICS_TOKEN }}
+          template: classic
+          base: ""
+          config_timezone: Asia/Kolkata
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
       - uses: lowlighter/metrics@latest
         with:
           template: terminal
           filename: metrics.terminal.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: header, metadata
+          config_timezone: Asia/Kolkata
