@@ -1,5 +1,5 @@
 <div style="display: flex; flex-wrap: wrap;">
-  <img src="github-metrics.svg" alt="GitHub Metrics" width="600" style="vertical-align: top; margin-right: 10px;"/>
+  <img src="github-metrics.svg" alt="GitHub Metrics" width="750" style="vertical-align: top; margin-right: 10px;"/>
 </div>
 
 <div style="display: flex; flex-wrap: wrap;">
