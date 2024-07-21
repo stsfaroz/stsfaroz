@@ -51,7 +51,7 @@ jobs:
           base: ""
           config_timezone: Asia/Kolkata
           plugin_isocalendar: yes
-          plugin_isocalendar_duration: half-year
+          plugin_isocalendar_duration: full-year
       - uses: stsfaroz/metrics@master
         with:
           filename: contributions.svg
