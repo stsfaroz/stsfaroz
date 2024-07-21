@@ -20,7 +20,7 @@ jobs:
           # Options
           user: stsfaroz
           template: terminal
-          base: header, repositories, metadata , activity, community
+          base: header, repositories, metadata , activity
           base_indepth: yes
           base_skip: yes
           config_timezone: Asia/Calcutta
