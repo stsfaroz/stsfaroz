@@ -1,8 +1,6 @@
-## Salman Faroz 🧑
+![Metrics](/metrics.terminal.svg) 
 
-Human
-
-![Metrics](/metrics.terminal.svg) ![Metrics](/iso_calender.svg)
+![Metrics](/iso_calender.svg)
 
 
 
