@@ -1,5 +1,4 @@
-![Metrics](/metrics.terminal.svg) 
-![Metrics](/iso_calender.svg)
+![Metrics](/metrics.terminal.svg)  ![Metrics](/iso_calender.svg)
 
 
 
