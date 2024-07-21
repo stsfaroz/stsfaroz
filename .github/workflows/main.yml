@@ -33,7 +33,7 @@ jobs:
           config_timezone: Asia/Calcutta
           plugin_stargazers_charts_type: classic
           plugin_stargazers_days: 365
-      - uses: lowlighter/metrics@latest
+      - uses: stsfaroz/metrics@master
         with:
           filename: metrics.plugin.languages.indepth.svg
           token: ${{ secrets.METRICS_TOKEN }}
