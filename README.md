@@ -9,5 +9,3 @@
 
 </div>
     <img src="contributions.svg" alt="Contributions" width="600" style="vertical-align: top;"/>
-
-</div>
