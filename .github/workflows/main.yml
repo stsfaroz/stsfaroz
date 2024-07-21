@@ -16,20 +16,11 @@ jobs:
     steps:
       - uses: stsfaroz/metrics@master
         with:
-          # Your GitHub token
-          # The following scopes are required:
-          #  - public_access (default scope)
-          # The following additional scopes may be required:
-          #  - read:org      (for organization related metrics)
-          #  - read:user     (for user related data)
-          #  - read:packages (for some packages related data)
-          #  - repo          (optional, if you want to include private repositories)
           token: ${{ secrets.METRICS_TOKEN }}
-
           # Options
           user: stsfaroz
           template: terminal
-          base: header, repositories, metadata
+          base: header, repositories, metadata , activity, community
           base_indepth: yes
           base_skip: yes
           config_timezone: Asia/Calcutta
@@ -37,13 +28,13 @@ jobs:
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
           plugin_lines: yes
-          plugin_lines_history_limit: 1
-          plugin_lines_repositories_limit: 4
+          plugin_lines_history_limit: 100
+          plugin_lines_repositories_limit: 100
           plugin_lines_sections: base
           plugin_stargazers: yes
           plugin_stargazers_charts: yes
           plugin_stargazers_charts_type: classic
-          plugin_stargazers_days: 14
+          plugin_stargazers_days: 365
       - uses: stsfaroz/metrics@master
         with:
           filename: metrics.plugin.languages.indepth.svg
@@ -52,7 +43,7 @@ jobs:
           plugin_languages: yes
           plugin_languages_indepth: yes
           plugin_languages_details: lines, bytes-size
-          plugin_languages_limit: 15
+          plugin_languages_limit: 150
           plugin_languages_analysis_timeout: 15
       - uses: stsfaroz/metrics@master
         with:
