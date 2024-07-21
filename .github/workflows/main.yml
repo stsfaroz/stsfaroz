@@ -34,8 +34,8 @@ jobs:
           plugin_stargazers_charts_type: classic
           plugin_stargazers_days: 365
           plugin_loss: yes
-          # plugin_isocalendar: yes
-          # plugin_isocalendar_duration: half-year
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
       - uses: stsfaroz/metrics@master
         with:
           filename: metrics.plugin.languages.indepth.svg
