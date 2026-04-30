@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="560" height="234" viewBox="0 0 560 234" xmlns="http://www.w3.org/2000/svg">
+<defs>
+
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%"   stop-color="#04060e"/>
+    <stop offset="100%" stop-color="#080d1e"/>
+  </linearGradient>
+
+  <!-- Gold fade-out horizontal rule -->
+  <linearGradient id="goldH" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%"   stop-color="#c8a84b" stop-opacity="0"/>
+    <stop offset="20%"  stop-color="#c8a84b"/>
+    <stop offset="80%"  stop-color="#c8a84b"/>
+    <stop offset="100%" stop-color="#c8a84b" stop-opacity="0"/>
+  </linearGradient>
+
+  <!-- Cyan scan line gradient (top-to-bottom fade) -->
+  <linearGradient id="scanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%"   stop-color="#00d4ff" stop-opacity="0"/>
+    <stop offset="50%"  stop-color="#00d4ff" stop-opacity="0.35"/>
+    <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+  </linearGradient>
+
+  <!-- Dot grid pattern for background texture -->
+  <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse">
+    <circle cx="9" cy="9" r="0.6" fill="#1a2545" opacity="0.7"/>
+  </pattern>
+
+  <!-- Glow filter -->
+  <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="2.5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+
+  <!-- Strong glow for corners -->
+  <filter id="strongGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+
+  <!-- Floating card shadow — gold tint, shifts with the float -->
+  <filter id="floatShadow" x="-6%" y="-10%" width="118%" height="130%">
+    <feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#c8a84b" flood-opacity="0.18"/>
+  </filter>
+
+  <!-- Clip to card bounds so scan line doesn't overflow -->
+  <clipPath id="card">
+    <rect x="9" y="9" width="542" height="202"/>
+  </clipPath>
+
+
+</defs>
+
+<!-- Static deep-space backdrop (does not move) -->
+<rect width="560" height="234" fill="#010209"/>
+
+<!-- ── FLOAT WRAPPER (Y drift: 7px → 2px → 7px, eased) ── -->
+<g filter="url(#floatShadow)">
+  <animateTransform attributeName="transform" type="translate"
+    values="0,7; 0,2; 0,7" dur="3.8s" repeatCount="indefinite"
+    calcMode="spline" keySplines="0.45,0,0.55,1; 0.45,0,0.55,1"/>
+
+  <!-- ── SWAY WRAPPER (±0.5° rotation around card centre) ── -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate"
+      values="-0.5,280,110; 0.5,280,110; -0.5,280,110" dur="5.2s" repeatCount="indefinite"
+      calcMode="spline" keySplines="0.45,0,0.55,1; 0.45,0,0.55,1"/>
+
+    <!-- Card background -->
+    <rect width="560" height="220" fill="url(#bg)"/>
+    <rect width="560" height="220" fill="url(#dots)" opacity="0.6"/>
+
+    <!-- ── BORDERS ── -->
+    <rect x="3"  y="3"  width="554" height="214" rx="5" fill="none" stroke="#0d1f50" stroke-width="2"/>
+    <rect x="8"  y="8"  width="544" height="204" rx="3" fill="none" stroke="#c8a84b" stroke-width="0.8" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- ── CORNER DIAMONDS ── -->
+    <g filter="url(#strongGlow)">
+      <polygon points="8,19  15,12  22,19  15,26"  fill="#c8a84b">
+        <animate attributeName="opacity" values="0.9;0.4;1;0.6;0.9" keyTimes="0;0.25;0.5;0.75;1" dur="4s" repeatCount="indefinite"/>
+      </polygon>
+      <polygon points="538,19 545,12 552,19 545,26" fill="#c8a84b">
+        <animate attributeName="opacity" values="0.6;1;0.4;0.9;0.6" keyTimes="0;0.25;0.5;0.75;1" dur="4s" repeatCount="indefinite"/>
+      </polygon>
+      <polygon points="8,201 15,194 22,201 15,208"  fill="#c8a84b">
+        <animate attributeName="opacity" values="1;0.5;0.9;0.4;1"   keyTimes="0;0.25;0.5;0.75;1" dur="4s" repeatCount="indefinite"/>
+      </polygon>
+      <polygon points="538,201 545,194 552,201 545,208" fill="#c8a84b">
+        <animate attributeName="opacity" values="0.4;0.9;0.6;1;0.4" keyTimes="0;0.25;0.5;0.75;1" dur="4s" repeatCount="indefinite"/>
+      </polygon>
+    </g>
+
+    <!-- Top & bottom gold rules -->
+    <line x1="26" y1="19"  x2="534" y2="19"  stroke="url(#goldH)" stroke-width="0.9"/>
+    <line x1="26" y1="201" x2="534" y2="201" stroke="url(#goldH)" stroke-width="0.9"/>
+
+    <!-- ── ONLINE STATUS INDICATOR (top-left) ── -->
+    <circle cx="34" cy="21" r="10" fill="none" stroke="#4AF626" stroke-width="0.6" opacity="0">
+      <animate attributeName="r"       values="4;11;4"   dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0;0.6" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="34" cy="21" r="3.5" fill="#4AF626">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="42" y="25" font-family="Ubuntu Mono,Courier New,monospace" font-size="8"
+          fill="#4AF626" letter-spacing="1.5">ONLINE</text>
+
+
+    <!-- Watermark -->
+    <text x="280" y="148" font-family="Ubuntu Mono,Courier New,monospace" font-size="12"
+          fill="#c8a84b" opacity="0.07" text-anchor="middle" letter-spacing="3"
+          transform="rotate(-12,280,148)">THUNDER BREATHING · FIRST FORM · 霹靂一閃</text>
+
+    <!-- ── SCAN LINE (clips to inner card) ── -->
+    <g clip-path="url(#card)">
+      <rect x="9" y="-20" width="542" height="40" fill="url(#scanGrad)">
+        <animateTransform attributeName="transform" type="translate"
+          values="0,0; 0,230; 0,230" keyTimes="0;0.65;1" dur="5s" repeatCount="1" fill="freeze"/>
+      </rect>
+    </g>
+
+    <!-- ── RANK BADGE (top-right) ── -->
+    <rect x="438" y="12" width="112" height="18" rx="3" fill="#0d1a38" stroke="#c8a84b" stroke-width="0.7" opacity="0.8"/>
+    <text x="494" y="24" font-family="Georgia,'Times New Roman',serif" font-size="9"
+          fill="#c8a84b" text-anchor="middle" letter-spacing="2">◆  SSS RANK  ◆</text>
+
+    <!-- ── TITLE ── -->
+    <text x="220" y="38" font-family="Georgia,'Times New Roman',serif" font-size="9"
+          fill="#3366bb" text-anchor="middle" letter-spacing="5">ス テ ー タ ス</text>
+    <text x="220" y="54" font-family="Georgia,'Times New Roman',serif" font-size="15"
+          text-anchor="middle" letter-spacing="6" filter="url(#glow)">
+      <tspan fill="#c8a84b">PLAYER</tspan><tspan fill="#e8eeff"> STATUS</tspan>
+      <animate attributeName="opacity" values="1;0.75;1;0.9;1" keyTimes="0;0.2;0.4;0.7;1" dur="6s" repeatCount="indefinite"/>
+    </text>
+    <!-- Title underline -->
+    <line x1="80" y1="60" x2="360" y2="60" stroke="url(#goldH)" stroke-width="0.7"/>
+
+    <!-- ── STATS (sequential fade-in) ── -->
+    <g font-family="Ubuntu Mono,Courier New,monospace" font-size="11">
+
+      <g opacity="0">
+        <text x="24"  y="80" fill="#c8a84b">◈</text>
+        <text x="40"  y="80" fill="#3d6fcc">NAME    </text>
+        <text x="130" y="80" fill="#d0e8ff">Salman Faroz</text>
+        <animate attributeName="opacity" from="0" to="1" begin="0.4s" dur="0.5s" fill="freeze"/>
+      </g>
+
+      <g opacity="0">
+        <text x="24"  y="97" fill="#c8a84b">◈</text>
+        <text x="40"  y="97" fill="#3d6fcc">CLASS   </text>
+        <text x="130" y="97" fill="#d0e8ff">AI Researcher</text>
+        <animate attributeName="opacity" from="0" to="1" begin="0.9s" dur="0.5s" fill="freeze"/>
+      </g>
+
+      <g opacity="0">
+        <text x="24"  y="114" fill="#c8a84b">◈</text>
+        <text x="40"  y="114" fill="#3d6fcc">ORIGIN  </text>
+        <text x="130" y="114" fill="#d0e8ff">Karur, Tamil Nadu, India</text>
+        <animate attributeName="opacity" from="0" to="1" begin="1.4s" dur="0.5s" fill="freeze"/>
+      </g>
+
+      <!-- Divider -->
+      <g opacity="0">
+        <line x1="24" y1="124" x2="536" y2="124" stroke="#1a2d60" stroke-width="0.8"/>
+        <animate attributeName="opacity" from="0" to="1" begin="1.8s" dur="0.3s" fill="freeze"/>
+      </g>
+
+      <g opacity="0">
+        <text x="24"  y="140" fill="#c8a84b">◈</text>
+        <text x="40"  y="140" fill="#3d6fcc">CREED   </text>
+        <text x="130" y="140" fill="#fce94f">"If you can only do one thing,</text>
+        <text x="130" y="156" fill="#fce94f"> hone it to perfection."</text>
+        <animate attributeName="opacity" from="0" to="1" begin="2.2s" dur="0.5s" fill="freeze"/>
+      </g>
+
+      <g opacity="0">
+        <text x="536" y="173" font-size="10" fill="#445577" text-anchor="end">— Zenitsu Agatsuma  ⚡</text>
+        <animate attributeName="opacity" from="0" to="1" begin="2.7s" dur="0.5s" fill="freeze"/>
+      </g>
+
+    </g>
+
+    <!-- ── FLOATING PARTICLES ── -->
+    <g fill="#c8a84b">
+      <circle cx="46" cy="150" r="1.5">
+        <animate attributeName="opacity" values="0;0.6;0;0.4;0" dur="7s" begin="0s"   repeatCount="indefinite"/>
+        <animate attributeName="cy"      values="150;132;150"    dur="7s"              repeatCount="indefinite"/>
+      </circle>
+      <circle cx="520" cy="80" r="1.5">
+        <animate attributeName="opacity" values="0;0.5;0;0.7;0" dur="9s" begin="2s"   repeatCount="indefinite"/>
+        <animate attributeName="cy"      values="80;62;80"       dur="9s"              repeatCount="indefinite"/>
+      </circle>
+      <circle cx="280" cy="190" r="1">
+        <animate attributeName="opacity" values="0;0.4;0;0.6;0" dur="6s" begin="1s"   repeatCount="indefinite"/>
+        <animate attributeName="cx"      values="280;300;280"    dur="6s"              repeatCount="indefinite"/>
+      </circle>
+      <circle cx="90"  cy="170" r="1">
+        <animate attributeName="opacity" values="0;0.5;0"        dur="8s" begin="3.5s" repeatCount="indefinite"/>
+        <animate attributeName="cy"      values="170;155;170"    dur="8s"              repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <!-- Bottom credit -->
+    <text x="280" y="213" font-family="Ubuntu Mono,Courier New,monospace" font-size="8"
+          fill="#1a2545" text-anchor="middle" letter-spacing="2">stsfaroz · github.com</text>
+
+  </g><!-- end sway -->
+</g><!-- end float -->
+
+</svg>

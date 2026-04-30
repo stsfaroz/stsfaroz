@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="860" height="34" viewBox="0 0 860 34" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <clipPath id="cmd">
+    <rect x="154" y="0" width="0" height="34">
+      <animate attributeName="width" from="0" to="750" begin="0.4s" dur="1.7s" fill="freeze" calcMode="linear"/>
+    </rect>
+  </clipPath>
+</defs>
+
+<rect width="860" height="34" fill="#1c0e24"/>
+
+<!-- Prompt (always visible) -->
+<text y="22" font-family="Ubuntu Mono,Courier New,monospace" font-size="13.5">
+  <tspan x="16" fill="#4AF626" font-weight="bold">salman@ubuntu</tspan><tspan fill="#EEEEEC">:</tspan><tspan fill="#5C9CFF">~</tspan><tspan fill="#EEEEEC">$ </tspan>
+</text>
+
+<!-- Cursor blinks before typing, disappears when typing starts -->
+<rect x="154" y="8" width="8" height="16" fill="#EEEEEC">
+  <animate attributeName="opacity" values="1;0;1;0;0" keyTimes="0;0.2;0.4;0.6;1" dur="0.8s" fill="freeze"/>
+</rect>
+
+<!-- Command types in via clip -->
+<text y="22" font-family="Ubuntu Mono,Courier New,monospace" font-size="13.5" clip-path="url(#cmd)">
+  <tspan x="154" fill="#EEEEEC">python3 visualize.py --mode=loss_landscape</tspan>
+</text>
+</svg>
