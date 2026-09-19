@@ -7,6 +7,7 @@ line; everything else in the session is static copy. Run manually or via
 """
 import html
 import json
+import math
 import os
 import sys
 import urllib.request
@@ -109,6 +110,7 @@ if _weekly_activity is not None:
 session = [
     ("whoami", ["salman-faroz — AI Researcher"]),
     ("cat role.txt", ["Deep Learning · Applied ML · research → production"]),
+    ("locate --self", [("__radar__", "KARUR, IN", "10.9600°N  78.0750°E")]),
     ("cat contact.txt", [
         ("portfolio   stsfaroz.github.io", "https://stsfaroz.github.io/"),
         ("linkedin    linkedin.com/in/salman-faroz", "https://www.linkedin.com/in/salman-faroz"),
@@ -185,6 +187,61 @@ for cmd_i, (cmd, outputs) in enumerate(session):
 
     for out_line in outputs:
         out_start = t
+
+        if isinstance(out_line, tuple) and out_line[0] == "__radar__":
+            _, place, coords_label = out_line
+            r = 20.0
+            y += 11
+            cx, cy = PAD_X + r, y + r
+
+            sweep_len = 3.4  # seconds per full rotation
+            glow_id = f"radar-glow{cmd_i}"
+            defs.append(f'''
+<filter id="{glow_id}" x="-60%" y="-60%" width="220%" height="220%">
+  <feGaussianBlur stdDeviation="1.6" result="blur"/>
+  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>''')
+
+            # blip position: fixed angle/radius inside the scope
+            blip_angle = math.radians(-52)
+            blip_r = r * 0.58
+            blip_x = cx + blip_r * math.cos(blip_angle)
+            blip_y = cy + blip_r * math.sin(blip_angle)
+
+            # sweep wedge: a ~26° pie slice from center, rotated continuously
+            wedge_deg = 26
+            a1 = math.radians(-wedge_deg)
+            x1, y1v = cx + r * math.cos(a1), cy + r * math.sin(a1)
+            x2, y2v = cx + r, cy
+
+            elements.append(f'''
+<g opacity="0">
+  <animate attributeName="opacity" from="0" to="1" begin="{out_start:.2f}s" dur="0.3s" fill="freeze"/>
+  <circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r:.1f}" fill="none" stroke="{GREEN}" stroke-opacity="0.3" stroke-width="1"/>
+  <circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r*0.66:.1f}" fill="none" stroke="{GREEN}" stroke-opacity="0.22" stroke-width="1"/>
+  <circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r*0.33:.1f}" fill="none" stroke="{GREEN}" stroke-opacity="0.18" stroke-width="1"/>
+  <line x1="{cx-r:.1f}" y1="{cy:.1f}" x2="{cx+r:.1f}" y2="{cy:.1f}" stroke="{GREEN}" stroke-opacity="0.12" stroke-width="1"/>
+  <line x1="{cx:.1f}" y1="{cy-r:.1f}" x2="{cx:.1f}" y2="{cy+r:.1f}" stroke="{GREEN}" stroke-opacity="0.12" stroke-width="1"/>
+
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0 {cx:.1f} {cy:.1f}" to="360 {cx:.1f} {cy:.1f}" dur="{sweep_len:.1f}s" begin="{out_start:.2f}s" repeatCount="indefinite"/>
+    <path d="M{cx:.1f},{cy:.1f} L{x1:.1f},{y1v:.1f} A{r:.1f},{r:.1f} 0 0,1 {x2:.1f},{y2v:.1f} Z" fill="{GREEN}" opacity="0.16"/>
+    <line x1="{cx:.1f}" y1="{cy:.1f}" x2="{x2:.1f}" y2="{y2v:.1f}" stroke="{GREEN}" stroke-width="1.2" stroke-opacity="0.85"/>
+  </g>
+
+  <circle cx="{blip_x:.1f}" cy="{blip_y:.1f}" r="2.6" fill="{GREEN}" filter="url(#{glow_id})"/>
+  <circle cx="{blip_x:.1f}" cy="{blip_y:.1f}" r="2.6" fill="none" stroke="{GREEN}" stroke-width="1.2">
+    <animate attributeName="r" values="2.6;{r*0.9:.1f}" dur="2.6s" begin="{out_start:.2f}s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0" dur="2.6s" begin="{out_start:.2f}s" repeatCount="indefinite"/>
+  </circle>
+
+  <text x="{cx+r+14:.1f}" y="{cy-3:.1f}" font-size="12" fill="{FG}">{esc(place)}</text>
+  <text x="{cx+r+14:.1f}" y="{cy+13:.1f}" font-size="10.5" fill="{FG}" opacity="0.55">{esc(coords_label)}</text>
+</g>''')
+
+            t = out_start + 0.35
+            y = cy + r + LINE_H * 0.9
+            continue
 
         if isinstance(out_line, tuple) and out_line[0] == "__spark__":
             counts = out_line[1]
@@ -304,6 +361,9 @@ svg = f'''<svg width="{WIDTH}" height="{total_height:.0f}" viewBox="0 0 {WIDTH} 
 <rect width="{WIDTH}" height="{TITLE_H}" fill="{TITLEBAR}"/>
 <line x1="0" y1="{TITLE_H}" x2="{WIDTH}" y2="{TITLE_H}" stroke="{BORDER}" stroke-width="1"/>
 <text x="{WIDTH/2:.0f}" y="{TITLE_H/2+4:.0f}" text-anchor="middle" font-size="12.5" fill="{FG}" opacity="0.75">{esc(PROMPT_USER)}: {esc(PROMPT_PATH)}</text>
+<circle cx="{WIDTH/2-70:.1f}" cy="{TITLE_H/2:.0f}" r="3" fill="{GREEN}">
+  <animate attributeName="opacity" values="1;0.35;1" dur="2.4s" repeatCount="indefinite"/>
+</circle>
 
 <!-- GNOME/Yaru-style window controls, right-aligned, monochrome pills -->
 <g fill="#4a1338">
