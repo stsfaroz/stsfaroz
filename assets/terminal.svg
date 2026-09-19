@@ -160,8 +160,8 @@
   <line x1="22" y1="407.5" x2="242.0" y2="407.5" stroke="#8ae234" stroke-opacity="0.15" stroke-width="1"/><line x1="22" y1="422.5" x2="242.0" y2="422.5" stroke="#8ae234" stroke-opacity="0.15" stroke-width="1"/><line x1="22" y1="437.5" x2="242.0" y2="437.5" stroke="#8ae234" stroke-opacity="0.15" stroke-width="1"/><line x1="77.0" y1="407.5" x2="77.0" y2="437.5" stroke="#8ae234" stroke-opacity="0.1" stroke-width="1"/><line x1="132.0" y1="407.5" x2="132.0" y2="437.5" stroke="#8ae234" stroke-opacity="0.1" stroke-width="1"/><line x1="187.0" y1="407.5" x2="187.0" y2="437.5" stroke="#8ae234" stroke-opacity="0.1" stroke-width="1"/>
 </g>
 <g clip-path="url(#spark-clip4)">
-  <polygon points="22.0,437.5 53.4,437.5 84.9,437.5 116.3,437.5 147.7,437.5 179.1,437.5 210.6,419.5 242.0,407.5 242.0,437.5 22.0,437.5" fill="#8ae234" opacity="0.12"/>
-  <polyline points="22.0,437.5 53.4,437.5 84.9,437.5 116.3,437.5 147.7,437.5 179.1,437.5 210.6,419.5 242.0,407.5" fill="none" stroke="#8ae234" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" filter="url(#spark-glow4)"/>
+  <polygon points="22.0,437.5 53.4,437.5 84.9,437.5 116.3,437.5 147.7,437.5 179.1,437.5 210.6,422.5 242.0,407.5 242.0,437.5 22.0,437.5" fill="#8ae234" opacity="0.12"/>
+  <polyline points="22.0,437.5 53.4,437.5 84.9,437.5 116.3,437.5 147.7,437.5 179.1,437.5 210.6,422.5 242.0,407.5" fill="none" stroke="#8ae234" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" filter="url(#spark-glow4)"/>
 </g>
 <circle cx="242.0" cy="407.5" r="3" fill="#8ae234" filter="url(#spark-glow4)" opacity="0">
   <animate attributeName="opacity" from="0" to="1" begin="9.51s" dur="0.15s" fill="freeze"/>
