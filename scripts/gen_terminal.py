@@ -110,7 +110,10 @@ if _weekly_activity is not None:
 session = [
     ("whoami", ["salman-faroz — AI Researcher"]),
     ("cat role.txt", ["Deep Learning · Applied ML · research → production"]),
-    ("locate --self", [("__radar__", "KARUR, IN", "10.9600°N  78.0750°E")]),
+    ("locate --self", [
+        "Karur, Tamil Nadu, India",
+        ("__radar__", "10.9600°N  78.0750°E"),
+    ]),
     ("cat contact.txt", [
         ("portfolio   stsfaroz.github.io", "https://stsfaroz.github.io/"),
         ("linkedin    linkedin.com/in/salman-faroz", "https://www.linkedin.com/in/salman-faroz"),
@@ -189,9 +192,9 @@ for cmd_i, (cmd, outputs) in enumerate(session):
         out_start = t
 
         if isinstance(out_line, tuple) and out_line[0] == "__radar__":
-            _, place, coords_label = out_line
-            r = 13.0
-            y += 2
+            _, coords_label = out_line
+            r = 19.0
+            y += 4
             cx, cy = PAD_X + r, y + r
 
             sweep_len = 3.4  # seconds per full rotation
@@ -235,12 +238,11 @@ for cmd_i, (cmd, outputs) in enumerate(session):
     <animate attributeName="opacity" values="0.8;0" dur="2.6s" begin="{out_start:.2f}s" repeatCount="indefinite"/>
   </circle>
 
-  <text x="{cx+r+14:.1f}" y="{cy-3:.1f}" font-size="12" fill="{FG}">{esc(place)}</text>
-  <text x="{cx+r+14:.1f}" y="{cy+13:.1f}" font-size="10.5" fill="{FG}" opacity="0.55">{esc(coords_label)}</text>
+  <text x="{cx+r+14:.1f}" y="{cy+4:.1f}" font-size="11" fill="{FG}" opacity="0.6">{esc(coords_label)}</text>
 </g>''')
 
             t = out_start + 0.35
-            y = cy + r + LINE_H * 0.3
+            y = cy + r + LINE_H * 0.5
             continue
 
         if isinstance(out_line, tuple) and out_line[0] == "__spark__":
