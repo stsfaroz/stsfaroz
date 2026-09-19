@@ -190,8 +190,8 @@ for cmd_i, (cmd, outputs) in enumerate(session):
 
         if isinstance(out_line, tuple) and out_line[0] == "__radar__":
             _, place, coords_label = out_line
-            r = 20.0
-            y += 11
+            r = 16.0
+            y += 5
             cx, cy = PAD_X + r, y + r
 
             sweep_len = 3.4  # seconds per full rotation
@@ -240,7 +240,7 @@ for cmd_i, (cmd, outputs) in enumerate(session):
 </g>''')
 
             t = out_start + 0.35
-            y = cy + r + LINE_H * 0.9
+            y = cy + r + LINE_H * 0.5
             continue
 
         if isinstance(out_line, tuple) and out_line[0] == "__spark__":
