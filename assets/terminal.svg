@@ -35,10 +35,20 @@
 
 <rect width="620" height="38" fill="#2c0722"/>
 <line x1="0" y1="38" x2="620" y2="38" stroke="#4b1039" stroke-width="1"/>
-<circle cx="21" cy="19" r="6" fill="#ff5c57"/>
-<circle cx="41" cy="19" r="6" fill="#ffbd44"/>
-<circle cx="61" cy="19" r="6" fill="#00ca4e"/>
 <text x="310" y="23" text-anchor="middle" font-size="12.5" fill="#eeeeec" opacity="0.75">salman@ubuntu: ~</text>
+
+<!-- GNOME/Yaru-style window controls, right-aligned, monochrome pills -->
+<g fill="#4a1338">
+  <circle cx="548.0" cy="19" r="11"/>
+  <circle cx="576.0" cy="19" r="11"/>
+  <circle cx="604.0" cy="19" r="11"/>
+</g>
+<g stroke="#eeeeec" stroke-opacity="0.7" stroke-width="1.4" fill="none" stroke-linecap="round">
+  <line x1="544.0" y1="19" x2="552.0" y2="19"/>
+  <rect x="572.0" y="15" width="8" height="8" rx="1.5"/>
+  <line x1="600.0" y1="15" x2="608.0" y2="23"/>
+  <line x1="600.0" y1="23" x2="608.0" y2="15"/>
+</g>
 
 
 <text x="22" y="50" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="1">salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="1">:</tspan><tspan fill="#729fcf" font-weight="600" opacity="1">~</tspan><tspan fill="#eeeeec" opacity="1">$ </tspan></text>
