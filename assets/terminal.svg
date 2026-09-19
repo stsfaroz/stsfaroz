@@ -1,0 +1,111 @@
+<svg width="620" height="442" viewBox="0 0 620 442" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<style>
+  text { font-family: "Ubuntu Mono","DejaVu Sans Mono","JetBrains Mono",Consolas,monospace; }
+</style>
+
+<clipPath id="clip0">
+  <rect x="170.8" y="34.0" width="0" height="22">
+    <animate attributeName="width" from="0" to="58.5" begin="0.90s" dur="0.14s" fill="freeze" calcMode="linear"/>
+  </rect>
+</clipPath>
+<clipPath id="clip1">
+  <rect x="170.8" y="90.2" width="0" height="22">
+    <animate attributeName="width" from="0" to="111.0" begin="2.46s" dur="0.29s" fill="freeze" calcMode="linear"/>
+  </rect>
+</clipPath>
+<clipPath id="clip2">
+  <rect x="170.8" y="146.5" width="0" height="22">
+    <animate attributeName="width" from="0" to="84.8" begin="4.16s" dur="0.21s" fill="freeze" calcMode="linear"/>
+  </rect>
+</clipPath>
+<clipPath id="clip3">
+  <rect x="170.8" y="227.8" width="0" height="22">
+    <animate attributeName="width" from="0" to="137.2" begin="5.87s" dur="0.36s" fill="freeze" calcMode="linear"/>
+  </rect>
+</clipPath>
+<clipPath id="clip4">
+  <rect x="170.8" y="334.0" width="0" height="22">
+    <animate attributeName="width" from="0" to="102.2" begin="7.80s" dur="0.26s" fill="freeze" calcMode="linear"/>
+  </rect>
+</clipPath>
+</defs>
+
+<rect width="620" height="442" fill="#300a24"/>
+
+<rect width="620" height="38" fill="#2c0722"/>
+<line x1="0" y1="38" x2="620" y2="38" stroke="#4b1039" stroke-width="1"/>
+<circle cx="21" cy="19" r="6" fill="#ff5c57"/>
+<circle cx="41" cy="19" r="6" fill="#ffbd44"/>
+<circle cx="61" cy="19" r="6" fill="#00ca4e"/>
+<text x="310" y="23" text-anchor="middle" font-size="12.5" fill="#eeeeec" opacity="0.75">salman@ubuntu: ~</text>
+
+
+<text x="22" y="50" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="1">salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="1">:</tspan><tspan fill="#729fcf" font-weight="600" opacity="1">~</tspan><tspan fill="#eeeeec" opacity="1">$ </tspan></text>
+<rect x="170.8" y="39.0" width="7.2" height="15" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.01;0.17;0.34;0.5;0.67;1"
+           begin="0.35s" dur="0.55s" fill="freeze"/>
+</rect>
+<text x="170.8" y="50" font-size="14.5" fill="#eeeeec" clip-path="url(#clip0)">whoami</text>
+<text x="22" y="75" font-size="14.5" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" from="0" to="1" begin="1.22s" dur="0.22s" fill="freeze"/>
+  salman-faroz — AI Researcher
+</text>
+<text x="22" y="106.25" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.85s" dur="0.06s" fill="freeze"/>salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.85s" dur="0.06s" fill="freeze"/>:</tspan><tspan fill="#729fcf" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.85s" dur="0.06s" fill="freeze"/>~</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.85s" dur="0.06s" fill="freeze"/>$ </tspan></text>
+<rect x="170.8" y="95.2" width="7.2" height="15" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.01;0.17;0.34;0.5;0.67;1"
+           begin="1.91s" dur="0.55s" fill="freeze"/>
+</rect>
+<text x="170.8" y="106.25" font-size="14.5" fill="#eeeeec" clip-path="url(#clip1)">cat role.txt</text>
+<text x="22" y="131.25" font-size="14.5" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" from="0" to="1" begin="2.93s" dur="0.22s" fill="freeze"/>
+  Deep Learning · Applied ML · research → production
+</text>
+<text x="22" y="162.5" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="3.55s" dur="0.06s" fill="freeze"/>salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="3.55s" dur="0.06s" fill="freeze"/>:</tspan><tspan fill="#729fcf" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="3.55s" dur="0.06s" fill="freeze"/>~</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="3.55s" dur="0.06s" fill="freeze"/>$ </tspan></text>
+<rect x="170.8" y="151.5" width="7.2" height="15" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.01;0.17;0.34;0.5;0.67;1"
+           begin="3.61s" dur="0.55s" fill="freeze"/>
+</rect>
+<text x="170.8" y="162.5" font-size="14.5" fill="#eeeeec" clip-path="url(#clip2)">ls stack/</text>
+<text x="22" y="187.5" font-size="14.5" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" from="0" to="1" begin="4.56s" dur="0.22s" fill="freeze"/>
+  python  pytorch  tensorflow  scikit-learn  opencv
+</text>
+<text x="22" y="212.5" font-size="14.5" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" from="0" to="1" begin="4.63s" dur="0.22s" fill="freeze"/>
+  numpy   pandas   jupyter     docker        git   linux
+</text>
+<text x="22" y="243.75" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="5.26s" dur="0.06s" fill="freeze"/>salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="5.26s" dur="0.06s" fill="freeze"/>:</tspan><tspan fill="#729fcf" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="5.26s" dur="0.06s" fill="freeze"/>~</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="5.26s" dur="0.06s" fill="freeze"/>$ </tspan></text>
+<rect x="170.8" y="232.8" width="7.2" height="15" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.01;0.17;0.34;0.5;0.67;1"
+           begin="5.32s" dur="0.55s" fill="freeze"/>
+</rect>
+<text x="170.8" y="243.75" font-size="14.5" fill="#eeeeec" clip-path="url(#clip3)">cat contact.txt</text>
+<text x="22" y="268.75" font-size="14.5" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" from="0" to="1" begin="6.41s" dur="0.22s" fill="freeze"/>
+  portfolio   stsfaroz.github.io
+</text>
+<text x="22" y="293.75" font-size="14.5" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" from="0" to="1" begin="6.48s" dur="0.22s" fill="freeze"/>
+  linkedin    linkedin.com/in/salman-faroz
+</text>
+<text x="22" y="318.75" font-size="14.5" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" from="0" to="1" begin="6.56s" dur="0.22s" fill="freeze"/>
+  mail        stsfaroz@gmail.com
+</text>
+<text x="22" y="350.0" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="7.19s" dur="0.06s" fill="freeze"/>salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="7.19s" dur="0.06s" fill="freeze"/>:</tspan><tspan fill="#729fcf" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="7.19s" dur="0.06s" fill="freeze"/>~</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="7.19s" dur="0.06s" fill="freeze"/>$ </tspan></text>
+<rect x="170.8" y="339.0" width="7.2" height="15" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.01;0.17;0.34;0.5;0.67;1"
+           begin="7.25s" dur="0.55s" fill="freeze"/>
+</rect>
+<text x="170.8" y="350.0" font-size="14.5" fill="#eeeeec" clip-path="url(#clip4)">./status.sh</text>
+<text x="22" y="375.0" font-size="14.5" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" from="0" to="1" begin="8.24s" dur="0.22s" fill="freeze"/>
+  33 repos · 48 followers · still building.
+</text>
+<text x="22" y="406.25" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="8.87s" dur="0.06s" fill="freeze"/>salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="8.87s" dur="0.06s" fill="freeze"/>:</tspan><tspan fill="#729fcf" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="8.87s" dur="0.06s" fill="freeze"/>~</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="8.87s" dur="0.06s" fill="freeze"/>$ </tspan></text>
+<rect x="170.8" y="395.2" width="7.2" height="15" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.01;0.17;0.34;0.5;0.67;1"
+           begin="8.93s" dur="10s" repeatCount="indefinite"/>
+</rect>
+</svg>
