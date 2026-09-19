@@ -1,0 +1,36 @@
+name: Refresh terminal.svg
+
+on:
+  schedule:
+    # every Monday 06:00 UTC
+    - cron: "0 6 * * 1"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/gen_terminal.py"
+      - ".github/workflows/refresh-terminal.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Regenerate assets/terminal.svg
+        run: python3 scripts/gen_terminal.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/terminal.svg
+          git diff --cached --quiet && echo "no changes" || git commit -m "chore: refresh terminal.svg stats"
+          git push
