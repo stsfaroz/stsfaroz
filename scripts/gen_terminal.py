@@ -10,6 +10,7 @@ import json
 import os
 import sys
 import urllib.request
+from datetime import datetime, timezone
 
 GITHUB_USER = "stsfaroz"
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -58,19 +59,62 @@ def fetch_status_line():
         return "33 repos · 48 followers · still building."
 
 
+def fetch_activity_weeks(weeks=8):
+    """Real weekly public-event counts (pushes, PRs, issues, ...) for the
+    last `weeks` weeks, from /events/public. Returns None on any failure so
+    the sparkline is simply skipped rather than showing fabricated data."""
+    try:
+        req = urllib.request.Request(
+            f"https://api.github.com/users/{GITHUB_USER}/events/public?per_page=100",
+            headers={"Accept": "application/vnd.github+json", "User-Agent": "gen-terminal-script"},
+        )
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            events = json.load(resp)
+        now = datetime.now(timezone.utc)
+        buckets = [0] * weeks
+        for e in events:
+            ts = datetime.strptime(e["created_at"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+            age_days = (now - ts).days
+            week_idx = weeks - 1 - (age_days // 7)
+            if 0 <= week_idx < weeks:
+                buckets[week_idx] += 1
+        return buckets
+    except Exception as exc:
+        print(f"warning: activity fetch failed ({exc}), skipping sparkline", file=sys.stderr)
+        return None
+
+
+def fetch_total_commits():
+    """All-time commit count via the commit search API (author:<user>,
+    across every repo GitHub indexes — not just this account's own repos).
+    Returns None on failure so the label is simply omitted."""
+    try:
+        req = urllib.request.Request(
+            f"https://api.github.com/search/commits?q=author:{GITHUB_USER}&per_page=1",
+            headers={"Accept": "application/vnd.github+json", "User-Agent": "gen-terminal-script"},
+        )
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.load(resp)
+        return data["total_count"]
+    except Exception as exc:
+        print(f"warning: commit count fetch failed ({exc}), omitting label", file=sys.stderr)
+        return None
+
+
+_status_outputs = [fetch_status_line()]
+_weekly_activity = fetch_activity_weeks()
+if _weekly_activity is not None:
+    _status_outputs.append(("__spark__", _weekly_activity, fetch_total_commits()))
+
 session = [
     ("whoami", ["salman-faroz — AI Researcher"]),
     ("cat role.txt", ["Deep Learning · Applied ML · research → production"]),
-    ("ls stack/", [
-        "python  pytorch  tensorflow  scikit-learn  opencv",
-        "numpy   pandas   jupyter     docker        git   linux",
-    ]),
     ("cat contact.txt", [
         ("portfolio   stsfaroz.github.io", "https://stsfaroz.github.io/"),
         ("linkedin    linkedin.com/in/salman-faroz", "https://www.linkedin.com/in/salman-faroz"),
         ("mail        stsfaroz@gmail.com", "mailto:stsfaroz@gmail.com"),
     ]),
-    ("./status.sh", [fetch_status_line()]),
+    ("./status.sh", _status_outputs),
 ]
 
 
@@ -142,6 +186,79 @@ for cmd_i, (cmd, outputs) in enumerate(session):
     for out_line in outputs:
         out_start = t
 
+        if isinstance(out_line, tuple) and out_line[0] == "__spark__":
+            counts = out_line[1]
+            total_commits = out_line[2]
+            n = len(counts)
+            chart_w, chart_h = 220.0, 30.0
+            max_v = max(max(counts), 1)
+            xs = [i * (chart_w / (n - 1)) for i in range(n)] if n > 1 else [0.0]
+            ys = [chart_h - (c / max_v) * chart_h for c in counts]
+
+            caption_y = y + 8
+            top = caption_y + 14
+            pts = [(PAD_X + px, top + py) for px, py in zip(xs, ys)]
+            draw_dur = 0.9
+
+            poly_str = " ".join(f"{px:.1f},{py:.1f}" for px, py in pts)
+            baseline = top + chart_h
+            area_str = poly_str + f" {pts[-1][0]:.1f},{baseline:.1f} {pts[0][0]:.1f},{baseline:.1f}"
+
+            reveal_id = f"spark-clip{cmd_i}"
+            glow_id = f"spark-glow{cmd_i}"
+            defs.append(f'''
+<clipPath id="{reveal_id}">
+  <rect x="{PAD_X-2}" y="{top-4:.1f}" width="0" height="{chart_h+8:.1f}">
+    <animate attributeName="width" from="0" to="{chart_w+4:.1f}" begin="{out_start:.2f}s" dur="{draw_dur:.2f}s" fill="freeze" calcMode="linear"/>
+  </rect>
+</clipPath>
+<filter id="{glow_id}" x="-30%" y="-100%" width="160%" height="300%">
+  <feGaussianBlur stdDeviation="2.2" result="blur"/>
+  <feMerge>
+    <feMergeNode in="blur"/>
+    <feMergeNode in="blur"/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>''')
+
+            # radar/scope-style graticule behind the trace
+            grid_rows = "".join(
+                f'<line x1="{PAD_X}" y1="{top+chart_h*f:.1f}" x2="{PAD_X+chart_w:.1f}" y2="{top+chart_h*f:.1f}" stroke="{GREEN}" stroke-opacity="0.15" stroke-width="1"/>'
+                for f in (0.0, 0.5, 1.0)
+            )
+            grid_cols = "".join(
+                f'<line x1="{PAD_X+chart_w*f/4:.1f}" y1="{top:.1f}" x2="{PAD_X+chart_w*f/4:.1f}" y2="{top+chart_h:.1f}" stroke="{GREEN}" stroke-opacity="0.1" stroke-width="1"/>'
+                for f in range(1, 4)
+            )
+
+            elements.append(f'''
+<text x="{PAD_X}" y="{caption_y:.1f}" font-size="10.5" fill="{FG}" opacity="0">
+  <animate attributeName="opacity" from="0" to="0.55" begin="{out_start:.2f}s" dur="0.3s" fill="freeze"/>
+  public activity
+</text>
+<g opacity="0">
+  <animate attributeName="opacity" from="0" to="1" begin="{out_start:.2f}s" dur="0.3s" fill="freeze"/>
+  {grid_rows}{grid_cols}
+</g>
+<g clip-path="url(#{reveal_id})">
+  <polygon points="{area_str}" fill="{GREEN}" opacity="0.12"/>
+  <polyline points="{poly_str}" fill="none" stroke="{GREEN}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" filter="url(#{glow_id})"/>
+</g>
+<circle cx="{pts[-1][0]:.1f}" cy="{pts[-1][1]:.1f}" r="3" fill="{GREEN}" filter="url(#{glow_id})" opacity="0">
+  <animate attributeName="opacity" from="0" to="1" begin="{out_start+draw_dur:.2f}s" dur="0.15s" fill="freeze"/>
+</circle>''')
+
+            if total_commits is not None:
+                elements.append(f'''
+<text x="{pts[-1][0]+9:.1f}" y="{pts[-1][1]+3.5:.1f}" font-size="10.5" fill="{GREEN}" opacity="0">
+  <animate attributeName="opacity" from="0" to="1" begin="{out_start+draw_dur:.2f}s" dur="0.15s" fill="freeze"/>
+  {total_commits:,} commits, all-time
+</text>''')
+
+            t = out_start + draw_dur + 0.25
+            y = top + chart_h + LINE_H * 0.6
+            continue
+
         if isinstance(out_line, tuple):
             text, href = out_line
             areas.append((PAD_X, y - 16, PAD_X + len(text) * CHAR_W, y + 6, href, text.strip()))
@@ -176,6 +293,9 @@ svg = f'''<svg width="{WIDTH}" height="{total_height:.0f}" viewBox="0 0 {WIDTH} 
 <style>
   text {{ font-family: "Ubuntu Mono","DejaVu Sans Mono","JetBrains Mono",Consolas,monospace; }}
 </style>
+<pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+  <rect width="4" height="1" fill="#000000" opacity="0.5"/>
+</pattern>
 {''.join(defs)}
 </defs>
 
@@ -199,6 +319,12 @@ svg = f'''<svg width="{WIDTH}" height="{total_height:.0f}" viewBox="0 0 {WIDTH} 
 </g>
 
 {''.join(elements)}
+
+<!-- CRT: faint scanlines sitting over everything, then a bright boot-flash that fades to reveal the session -->
+<rect width="{WIDTH}" height="{total_height:.0f}" fill="url(#scanlines)" opacity="0.1"/>
+<rect width="{WIDTH}" height="{total_height:.0f}" fill="#ffffff" opacity="0.85">
+  <animate attributeName="opacity" from="0.85" to="0" begin="0s" dur="0.3s" fill="freeze" calcMode="linear"/>
+</rect>
 </svg>
 '''
 
