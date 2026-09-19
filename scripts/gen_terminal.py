@@ -190,8 +190,8 @@ for cmd_i, (cmd, outputs) in enumerate(session):
 
         if isinstance(out_line, tuple) and out_line[0] == "__radar__":
             _, place, coords_label = out_line
-            r = 16.0
-            y += 5
+            r = 13.0
+            y += 2
             cx, cy = PAD_X + r, y + r
 
             sweep_len = 3.4  # seconds per full rotation
@@ -217,11 +217,11 @@ for cmd_i, (cmd, outputs) in enumerate(session):
             elements.append(f'''
 <g opacity="0">
   <animate attributeName="opacity" from="0" to="1" begin="{out_start:.2f}s" dur="0.3s" fill="freeze"/>
-  <circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r:.1f}" fill="none" stroke="{GREEN}" stroke-opacity="0.3" stroke-width="1"/>
-  <circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r*0.66:.1f}" fill="none" stroke="{GREEN}" stroke-opacity="0.22" stroke-width="1"/>
-  <circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r*0.33:.1f}" fill="none" stroke="{GREEN}" stroke-opacity="0.18" stroke-width="1"/>
-  <line x1="{cx-r:.1f}" y1="{cy:.1f}" x2="{cx+r:.1f}" y2="{cy:.1f}" stroke="{GREEN}" stroke-opacity="0.12" stroke-width="1"/>
-  <line x1="{cx:.1f}" y1="{cy-r:.1f}" x2="{cx:.1f}" y2="{cy+r:.1f}" stroke="{GREEN}" stroke-opacity="0.12" stroke-width="1"/>
+  <circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r:.1f}" fill="none" stroke="{GREEN}" stroke-opacity="0.55" stroke-width="1"/>
+  <circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r*0.66:.1f}" fill="none" stroke="{GREEN}" stroke-opacity="0.4" stroke-width="1"/>
+  <circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r*0.33:.1f}" fill="none" stroke="{GREEN}" stroke-opacity="0.32" stroke-width="1"/>
+  <line x1="{cx-r:.1f}" y1="{cy:.1f}" x2="{cx+r:.1f}" y2="{cy:.1f}" stroke="{GREEN}" stroke-opacity="0.22" stroke-width="1"/>
+  <line x1="{cx:.1f}" y1="{cy-r:.1f}" x2="{cx:.1f}" y2="{cy+r:.1f}" stroke="{GREEN}" stroke-opacity="0.22" stroke-width="1"/>
 
   <g>
     <animateTransform attributeName="transform" type="rotate" from="0 {cx:.1f} {cy:.1f}" to="360 {cx:.1f} {cy:.1f}" dur="{sweep_len:.1f}s" begin="{out_start:.2f}s" repeatCount="indefinite"/>
@@ -240,7 +240,7 @@ for cmd_i, (cmd, outputs) in enumerate(session):
 </g>''')
 
             t = out_start + 0.35
-            y = cy + r + LINE_H * 0.5
+            y = cy + r + LINE_H * 0.3
             continue
 
         if isinstance(out_line, tuple) and out_line[0] == "__spark__":
