@@ -1,7 +1,7 @@
-<svg width="620" height="539" viewBox="0 0 620 539" xmlns="http://www.w3.org/2000/svg">
+<svg width="620" height="745" viewBox="0 0 620 745" xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
 <defs>
 <style>
-  text { font-family: "Ubuntu Mono","DejaVu Sans Mono","JetBrains Mono",Consolas,monospace; }
+  text { font-family: "Ubuntu Mono","DejaVu Sans Mono","JetBrains Mono",Consolas,monospace; white-space: pre; }
 </style>
 <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
   <rect width="4" height="1" fill="#000000" opacity="0.5"/>
@@ -19,29 +19,15 @@
 </clipPath>
 <clipPath id="clip2">
   <rect x="170.8" y="146.5" width="0" height="22">
-    <animate attributeName="width" from="0" to="119.8" begin="4.16s" dur="0.31s" fill="freeze" calcMode="linear"/>
+    <animate attributeName="width" from="0" to="102.2" begin="4.16s" dur="0.26s" fill="freeze" calcMode="linear"/>
   </rect>
 </clipPath>
-<filter id="radar-glow2" x="-60%" y="-60%" width="220%" height="220%">
-  <feGaussianBlur stdDeviation="1.6" result="blur"/>
-  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-</filter>
-<clipPath id="clip3">
-  <rect x="170.8" y="257.2" width="0" height="22">
-    <animate attributeName="width" from="0" to="137.2" begin="6.24s" dur="0.36s" fill="freeze" calcMode="linear"/>
+<clipPath id="spark-clip2">
+  <rect x="20" y="255.5" width="0" height="38.0">
+    <animate attributeName="width" from="0" to="224.0" begin="4.76s" dur="0.90s" fill="freeze" calcMode="linear"/>
   </rect>
 </clipPath>
-<clipPath id="clip4">
-  <rect x="170.8" y="363.5" width="0" height="22">
-    <animate attributeName="width" from="0" to="102.2" begin="8.17s" dur="0.26s" fill="freeze" calcMode="linear"/>
-  </rect>
-</clipPath>
-<clipPath id="spark-clip4">
-  <rect x="20" y="447.5" width="0" height="38.0">
-    <animate attributeName="width" from="0" to="224.0" begin="8.69s" dur="0.90s" fill="freeze" calcMode="linear"/>
-  </rect>
-</clipPath>
-<filter id="spark-glow4" x="-30%" y="-100%" width="160%" height="300%">
+<filter id="spark-glow2" x="-30%" y="-100%" width="160%" height="300%">
   <feGaussianBlur stdDeviation="2.2" result="blur"/>
   <feMerge>
     <feMergeNode in="blur"/>
@@ -49,9 +35,28 @@
     <feMergeNode in="SourceGraphic"/>
   </feMerge>
 </filter>
+<clipPath id="clip3">
+  <rect x="170.8" y="294.8" width="0" height="22">
+    <animate attributeName="width" from="0" to="189.8" begin="7.07s" dur="0.50s" fill="freeze" calcMode="linear"/>
+  </rect>
+</clipPath>
+<clipPath id="clip4">
+  <rect x="170.8" y="476.0" width="0" height="22">
+    <animate attributeName="width" from="0" to="137.2" begin="9.37s" dur="0.36s" fill="freeze" calcMode="linear"/>
+  </rect>
+</clipPath>
+<clipPath id="clip5">
+  <rect x="170.8" y="582.2" width="0" height="22">
+    <animate attributeName="width" from="0" to="119.8" begin="11.30s" dur="0.31s" fill="freeze" calcMode="linear"/>
+  </rect>
+</clipPath>
+<filter id="radar-glow5" x="-60%" y="-60%" width="220%" height="220%">
+  <feGaussianBlur stdDeviation="1.6" result="blur"/>
+  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
 </defs>
 
-<rect width="620" height="539" fill="#300a24"/>
+<rect width="620" height="745" fill="#300a24"/>
 
 <rect width="620" height="38" fill="#2c0722"/>
 <line x1="0" y1="38" x2="620" y2="38" stroke="#4b1039" stroke-width="1"/>
@@ -79,109 +84,80 @@
   <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.01;0.17;0.34;0.5;0.67;1"
            begin="0.35s" dur="0.55s" fill="freeze"/>
 </rect>
-<text x="170.8" y="50" font-size="14.5" fill="#eeeeec" clip-path="url(#clip0)">whoami</text>
-<text x="22" y="75" font-size="14.5" fill="#eeeeec" opacity="0">
-  <animate attributeName="opacity" from="0" to="1" begin="1.22s" dur="0.22s" fill="freeze"/>
-  salman-faroz — AI Researcher
-</text>
+<text x="170.8" y="50" font-size="14.5" fill="#eeeeec" clip-path="url(#clip0)">whoami</text><text x="22" y="75" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.22s" dur="0.22s" fill="freeze"/>salman-faroz — AI Researcher</text>
 <text x="22" y="106.25" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.85s" dur="0.06s" fill="freeze"/>salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.85s" dur="0.06s" fill="freeze"/>:</tspan><tspan fill="#729fcf" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.85s" dur="0.06s" fill="freeze"/>~</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="1.85s" dur="0.06s" fill="freeze"/>$ </tspan></text>
 <rect x="170.8" y="95.2" width="7.2" height="15" fill="#eeeeec" opacity="0">
   <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.01;0.17;0.34;0.5;0.67;1"
            begin="1.91s" dur="0.55s" fill="freeze"/>
 </rect>
-<text x="170.8" y="106.25" font-size="14.5" fill="#eeeeec" clip-path="url(#clip1)">cat role.txt</text>
-<text x="22" y="131.25" font-size="14.5" fill="#eeeeec" opacity="0">
-  <animate attributeName="opacity" from="0" to="1" begin="2.93s" dur="0.22s" fill="freeze"/>
-  Deep Learning · Applied ML · research → production
-</text>
+<text x="170.8" y="106.25" font-size="14.5" fill="#eeeeec" clip-path="url(#clip1)">cat role.txt</text><text x="22" y="131.25" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="2.93s" dur="0.22s" fill="freeze"/>Deep Learning · Applied ML · research → production</text>
 <text x="22" y="162.5" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="3.55s" dur="0.06s" fill="freeze"/>salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="3.55s" dur="0.06s" fill="freeze"/>:</tspan><tspan fill="#729fcf" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="3.55s" dur="0.06s" fill="freeze"/>~</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="3.55s" dur="0.06s" fill="freeze"/>$ </tspan></text>
 <rect x="170.8" y="151.5" width="7.2" height="15" fill="#eeeeec" opacity="0">
   <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.01;0.17;0.34;0.5;0.67;1"
            begin="3.61s" dur="0.55s" fill="freeze"/>
 </rect>
-<text x="170.8" y="162.5" font-size="14.5" fill="#eeeeec" clip-path="url(#clip2)">locate --self</text>
-<text x="22" y="187.5" font-size="14.5" fill="#eeeeec" opacity="0">
-  <animate attributeName="opacity" from="0" to="1" begin="4.65s" dur="0.22s" fill="freeze"/>
-  Karur, Tamil Nadu, India
-</text>
+<text x="170.8" y="162.5" font-size="14.5" fill="#eeeeec" clip-path="url(#clip2)">./status.sh</text><text x="22" y="187.5" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="4.60s" dur="0.22s" fill="freeze"/>33 repos · 48 followers · still building.</text><text x="22" y="212.5" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="4.68s" dur="0.22s" fill="freeze"/>as of Mon Sep 21 22:22 IST 2026</text>
+<text x="22" y="245.5" font-size="10.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="0.55" begin="4.76s" dur="0.3s" fill="freeze"/>public activity</text>
 <g opacity="0">
-  <animate attributeName="opacity" from="0" to="1" begin="4.73s" dur="0.3s" fill="freeze"/>
-  <circle cx="41.0" cy="235.5" r="19.0" fill="none" stroke="#8ae234" stroke-opacity="0.55" stroke-width="1"/>
-  <circle cx="41.0" cy="235.5" r="12.5" fill="none" stroke="#8ae234" stroke-opacity="0.4" stroke-width="1"/>
-  <circle cx="41.0" cy="235.5" r="6.3" fill="none" stroke="#8ae234" stroke-opacity="0.32" stroke-width="1"/>
-  <line x1="22.0" y1="235.5" x2="60.0" y2="235.5" stroke="#8ae234" stroke-opacity="0.22" stroke-width="1"/>
-  <line x1="41.0" y1="216.5" x2="41.0" y2="254.5" stroke="#8ae234" stroke-opacity="0.22" stroke-width="1"/>
+  <animate attributeName="opacity" from="0" to="1" begin="4.76s" dur="0.3s" fill="freeze"/>
+  <line x1="22" y1="259.5" x2="242.0" y2="259.5" stroke="#8ae234" stroke-opacity="0.15" stroke-width="1"/><line x1="22" y1="274.5" x2="242.0" y2="274.5" stroke="#8ae234" stroke-opacity="0.15" stroke-width="1"/><line x1="22" y1="289.5" x2="242.0" y2="289.5" stroke="#8ae234" stroke-opacity="0.15" stroke-width="1"/><line x1="77.0" y1="259.5" x2="77.0" y2="289.5" stroke="#8ae234" stroke-opacity="0.1" stroke-width="1"/><line x1="132.0" y1="259.5" x2="132.0" y2="289.5" stroke="#8ae234" stroke-opacity="0.1" stroke-width="1"/><line x1="187.0" y1="259.5" x2="187.0" y2="289.5" stroke="#8ae234" stroke-opacity="0.1" stroke-width="1"/>
+</g>
+<g clip-path="url(#spark-clip2)">
+  <polygon points="22.0,289.5 53.4,289.5 84.9,289.5 116.3,289.5 147.7,289.5 179.1,289.5 210.6,279.5 242.0,259.5 242.0,289.5 22.0,289.5" fill="#8ae234" opacity="0.12"/>
+  <polyline points="22.0,289.5 53.4,289.5 84.9,289.5 116.3,289.5 147.7,289.5 179.1,289.5 210.6,279.5 242.0,259.5" fill="none" stroke="#8ae234" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" filter="url(#spark-glow2)"/>
+</g>
+<circle cx="242.0" cy="259.5" r="3" fill="#8ae234" filter="url(#spark-glow2)" opacity="0">
+  <animate attributeName="opacity" from="0" to="1" begin="5.66s" dur="0.15s" fill="freeze"/>
+</circle><text x="251.0" y="263.0" font-size="10.5" fill="#8ae234" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="5.66s" dur="0.15s" fill="freeze"/>164 commits, all-time</text>
+<text x="22" y="310.75" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="6.46s" dur="0.06s" fill="freeze"/>salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="6.46s" dur="0.06s" fill="freeze"/>:</tspan><tspan fill="#729fcf" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="6.46s" dur="0.06s" fill="freeze"/>~</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="6.46s" dur="0.06s" fill="freeze"/>$ </tspan></text>
+<rect x="170.8" y="299.8" width="7.2" height="15" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.01;0.17;0.34;0.5;0.67;1"
+           begin="6.52s" dur="0.55s" fill="freeze"/>
+</rect>
+<text x="170.8" y="310.75" font-size="14.5" fill="#eeeeec" clip-path="url(#clip3)">cat contributions.txt</text><text x="22" y="335.75" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="7.75s" dur="0.22s" fill="freeze"/>ubuntu          ubuntu/app-center</text><text x="22" y="360.75" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="7.83s" dur="0.22s" fill="freeze"/>ggml-org        ggml-org/whisper.cpp</text><text x="22" y="385.75" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="7.90s" dur="0.22s" fill="freeze"/>crewAIInc       crewAIInc/crewAI</text><text x="22" y="410.75" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="7.98s" dur="0.22s" fill="freeze"/>langchain-ai    langchain-ai/langchain</text><text x="22" y="435.75" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="8.06s" dur="0.22s" fill="freeze"/>huggingface     huggingface/sentence-transformers</text><text x="22" y="460.75" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="8.13s" dur="0.22s" fill="freeze"/>tensorflow      tensorflow/probability</text>
+<text x="22" y="492.0" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="8.76s" dur="0.06s" fill="freeze"/>salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="8.76s" dur="0.06s" fill="freeze"/>:</tspan><tspan fill="#729fcf" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="8.76s" dur="0.06s" fill="freeze"/>~</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="8.76s" dur="0.06s" fill="freeze"/>$ </tspan></text>
+<rect x="170.8" y="481.0" width="7.2" height="15" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.01;0.17;0.34;0.5;0.67;1"
+           begin="8.82s" dur="0.55s" fill="freeze"/>
+</rect>
+<text x="170.8" y="492.0" font-size="14.5" fill="#eeeeec" clip-path="url(#clip4)">cat contact.txt</text><text x="22" y="517.0" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="9.91s" dur="0.22s" fill="freeze"/>portfolio   stsfaroz.github.io</text><text x="22" y="542.0" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="9.98s" dur="0.22s" fill="freeze"/>linkedin    linkedin.com/in/salman-faroz</text><text x="22" y="567.0" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="10.06s" dur="0.22s" fill="freeze"/>mail        stsfaroz@gmail.com</text>
+<text x="22" y="598.25" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="10.69s" dur="0.06s" fill="freeze"/>salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="10.69s" dur="0.06s" fill="freeze"/>:</tspan><tspan fill="#729fcf" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="10.69s" dur="0.06s" fill="freeze"/>~</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="10.69s" dur="0.06s" fill="freeze"/>$ </tspan></text>
+<rect x="170.8" y="587.2" width="7.2" height="15" fill="#eeeeec" opacity="0">
+  <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.01;0.17;0.34;0.5;0.67;1"
+           begin="10.75s" dur="0.55s" fill="freeze"/>
+</rect>
+<text x="170.8" y="598.25" font-size="14.5" fill="#eeeeec" clip-path="url(#clip5)">locate --self</text><text x="22" y="623.25" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="11.79s" dur="0.22s" fill="freeze"/>Karur, Tamil Nadu, India</text>
+<g opacity="0">
+  <animate attributeName="opacity" from="0" to="1" begin="11.87s" dur="0.3s" fill="freeze"/>
+  <circle cx="41.0" cy="671.2" r="19.0" fill="none" stroke="#8ae234" stroke-opacity="0.55" stroke-width="1"/>
+  <circle cx="41.0" cy="671.2" r="12.5" fill="none" stroke="#8ae234" stroke-opacity="0.4" stroke-width="1"/>
+  <circle cx="41.0" cy="671.2" r="6.3" fill="none" stroke="#8ae234" stroke-opacity="0.32" stroke-width="1"/>
+  <line x1="22.0" y1="671.2" x2="60.0" y2="671.2" stroke="#8ae234" stroke-opacity="0.22" stroke-width="1"/>
+  <line x1="41.0" y1="652.2" x2="41.0" y2="690.2" stroke="#8ae234" stroke-opacity="0.22" stroke-width="1"/>
 
   <g>
-    <animateTransform attributeName="transform" type="rotate" from="0 41.0 235.5" to="360 41.0 235.5" dur="3.4s" begin="4.73s" repeatCount="indefinite"/>
-    <path d="M41.0,235.5 L58.1,227.2 A19.0,19.0 0 0,1 60.0,235.5 Z" fill="#8ae234" opacity="0.16"/>
-    <line x1="41.0" y1="235.5" x2="60.0" y2="235.5" stroke="#8ae234" stroke-width="1.2" stroke-opacity="0.85"/>
+    <animateTransform attributeName="transform" type="rotate" from="0 41.0 671.2" to="360 41.0 671.2" dur="3.4s" begin="11.87s" repeatCount="indefinite"/>
+    <path d="M41.0,671.2 L58.1,662.9 A19.0,19.0 0 0,1 60.0,671.2 Z" fill="#8ae234" opacity="0.16"/>
+    <line x1="41.0" y1="671.2" x2="60.0" y2="671.2" stroke="#8ae234" stroke-width="1.2" stroke-opacity="0.85"/>
   </g>
 
-  <circle cx="47.8" cy="226.8" r="2.6" fill="#8ae234" filter="url(#radar-glow2)"/>
-  <circle cx="47.8" cy="226.8" r="2.6" fill="none" stroke="#8ae234" stroke-width="1.2">
-    <animate attributeName="r" values="2.6;17.1" dur="2.6s" begin="4.73s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.8;0" dur="2.6s" begin="4.73s" repeatCount="indefinite"/>
+  <circle cx="47.8" cy="662.6" r="2.6" fill="#8ae234" filter="url(#radar-glow5)"/>
+  <circle cx="47.8" cy="662.6" r="2.6" fill="none" stroke="#8ae234" stroke-width="1.2">
+    <animate attributeName="r" values="2.6;17.1" dur="2.6s" begin="11.87s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0" dur="2.6s" begin="11.87s" repeatCount="indefinite"/>
   </circle>
 
-  <text x="74.0" y="239.5" font-size="11" fill="#eeeeec" opacity="0.6">10.9600°N  78.0750°E</text>
+  <text x="74.0" y="675.2" font-size="11" fill="#eeeeec" opacity="0.6">10.9600°N  78.0750°E</text>
 </g>
-<text x="22" y="273.25" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="5.63s" dur="0.06s" fill="freeze"/>salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="5.63s" dur="0.06s" fill="freeze"/>:</tspan><tspan fill="#729fcf" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="5.63s" dur="0.06s" fill="freeze"/>~</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="5.63s" dur="0.06s" fill="freeze"/>$ </tspan></text>
-<rect x="170.8" y="262.2" width="7.2" height="15" fill="#eeeeec" opacity="0">
+<text x="22" y="709.0" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="12.77s" dur="0.06s" fill="freeze"/>salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="12.77s" dur="0.06s" fill="freeze"/>:</tspan><tspan fill="#729fcf" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="12.77s" dur="0.06s" fill="freeze"/>~</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="12.77s" dur="0.06s" fill="freeze"/>$ </tspan></text>
+<rect x="170.8" y="698.0" width="7.2" height="15" fill="#eeeeec" opacity="0">
   <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.01;0.17;0.34;0.5;0.67;1"
-           begin="5.69s" dur="0.55s" fill="freeze"/>
-</rect>
-<text x="170.8" y="273.25" font-size="14.5" fill="#eeeeec" clip-path="url(#clip3)">cat contact.txt</text>
-<text x="22" y="298.25" font-size="14.5" fill="#eeeeec" opacity="0">
-  <animate attributeName="opacity" from="0" to="1" begin="6.78s" dur="0.22s" fill="freeze"/>
-  portfolio   stsfaroz.github.io
-</text>
-<text x="22" y="323.25" font-size="14.5" fill="#eeeeec" opacity="0">
-  <animate attributeName="opacity" from="0" to="1" begin="6.85s" dur="0.22s" fill="freeze"/>
-  linkedin    linkedin.com/in/salman-faroz
-</text>
-<text x="22" y="348.25" font-size="14.5" fill="#eeeeec" opacity="0">
-  <animate attributeName="opacity" from="0" to="1" begin="6.93s" dur="0.22s" fill="freeze"/>
-  mail        stsfaroz@gmail.com
-</text>
-<text x="22" y="379.5" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="7.56s" dur="0.06s" fill="freeze"/>salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="7.56s" dur="0.06s" fill="freeze"/>:</tspan><tspan fill="#729fcf" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="7.56s" dur="0.06s" fill="freeze"/>~</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="7.56s" dur="0.06s" fill="freeze"/>$ </tspan></text>
-<rect x="170.8" y="368.5" width="7.2" height="15" fill="#eeeeec" opacity="0">
-  <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.01;0.17;0.34;0.5;0.67;1"
-           begin="7.62s" dur="0.55s" fill="freeze"/>
-</rect>
-<text x="170.8" y="379.5" font-size="14.5" fill="#eeeeec" clip-path="url(#clip4)">./status.sh</text>
-<text x="22" y="404.5" font-size="14.5" fill="#eeeeec" opacity="0">
-  <animate attributeName="opacity" from="0" to="1" begin="8.61s" dur="0.22s" fill="freeze"/>
-  33 repos · 48 followers · still building.
-</text>
-<text x="22" y="437.5" font-size="10.5" fill="#eeeeec" opacity="0">
-  <animate attributeName="opacity" from="0" to="0.55" begin="8.69s" dur="0.3s" fill="freeze"/>
-  public activity
-</text>
-<g opacity="0">
-  <animate attributeName="opacity" from="0" to="1" begin="8.69s" dur="0.3s" fill="freeze"/>
-  <line x1="22" y1="451.5" x2="242.0" y2="451.5" stroke="#8ae234" stroke-opacity="0.15" stroke-width="1"/><line x1="22" y1="466.5" x2="242.0" y2="466.5" stroke="#8ae234" stroke-opacity="0.15" stroke-width="1"/><line x1="22" y1="481.5" x2="242.0" y2="481.5" stroke="#8ae234" stroke-opacity="0.15" stroke-width="1"/><line x1="77.0" y1="451.5" x2="77.0" y2="481.5" stroke="#8ae234" stroke-opacity="0.1" stroke-width="1"/><line x1="132.0" y1="451.5" x2="132.0" y2="481.5" stroke="#8ae234" stroke-opacity="0.1" stroke-width="1"/><line x1="187.0" y1="451.5" x2="187.0" y2="481.5" stroke="#8ae234" stroke-opacity="0.1" stroke-width="1"/>
-</g>
-<g clip-path="url(#spark-clip4)">
-  <polygon points="22.0,481.5 53.4,481.5 84.9,481.5 116.3,481.5 147.7,481.5 179.1,481.5 210.6,471.5 242.0,451.5 242.0,481.5 22.0,481.5" fill="#8ae234" opacity="0.12"/>
-  <polyline points="22.0,481.5 53.4,481.5 84.9,481.5 116.3,481.5 147.7,481.5 179.1,481.5 210.6,471.5 242.0,451.5" fill="none" stroke="#8ae234" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" filter="url(#spark-glow4)"/>
-</g>
-<circle cx="242.0" cy="451.5" r="3" fill="#8ae234" filter="url(#spark-glow4)" opacity="0">
-  <animate attributeName="opacity" from="0" to="1" begin="9.59s" dur="0.15s" fill="freeze"/>
-</circle>
-<text x="251.0" y="455.0" font-size="10.5" fill="#8ae234" opacity="0">
-  <animate attributeName="opacity" from="0" to="1" begin="9.59s" dur="0.15s" fill="freeze"/>
-  1,388 commits, all-time
-</text>
-<text x="22" y="502.75" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="10.39s" dur="0.06s" fill="freeze"/>salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="10.39s" dur="0.06s" fill="freeze"/>:</tspan><tspan fill="#729fcf" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="10.39s" dur="0.06s" fill="freeze"/>~</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="10.39s" dur="0.06s" fill="freeze"/>$ </tspan></text>
-<rect x="170.8" y="491.8" width="7.2" height="15" fill="#eeeeec" opacity="0">
-  <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.01;0.17;0.34;0.5;0.67;1"
-           begin="10.45s" dur="10s" repeatCount="indefinite"/>
+           begin="12.83s" dur="10s" repeatCount="indefinite"/>
 </rect>
 
 <!-- CRT: faint scanlines sitting over everything, then a bright boot-flash that fades to reveal the session -->
-<rect width="620" height="539" fill="url(#scanlines)" opacity="0.1"/>
-<rect width="620" height="539" fill="#ffffff" opacity="0.85">
+<rect width="620" height="745" fill="url(#scanlines)" opacity="0.1"/>
+<rect width="620" height="745" fill="#ffffff" opacity="0.85">
   <animate attributeName="opacity" from="0.85" to="0" begin="0s" dur="0.3s" fill="freeze" calcMode="linear"/>
 </rect>
 </svg>

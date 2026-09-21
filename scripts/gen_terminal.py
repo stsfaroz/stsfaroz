@@ -9,9 +9,10 @@ import html
 import json
 import math
 import os
+import subprocess
 import sys
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 GITHUB_USER = "stsfaroz"
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -42,6 +43,14 @@ OUTPUT_FADE = 0.22
 PAUSE_AFTER_OUTPUT = 0.55
 CURSOR_BLINK_BEFORE = 0.55
 PROMPT_APPEAR = 0.06
+
+
+def now_ist_string():
+    """Current time in IST (UTC+5:30), formatted like the real `date`
+    command. Reflects the moment this script last ran — a quiet proof
+    the daily cron is actually alive, not just a claim."""
+    ist = datetime.now(timezone.utc) + timedelta(hours=5, minutes=30)
+    return ist.strftime("%a %b %-d %H:%M IST %Y")
 
 
 def fetch_status_line():
@@ -85,41 +94,123 @@ def fetch_activity_weeks(weeks=8):
         return None
 
 
-def fetch_total_commits():
-    """All-time commit count via the commit search API (author:<user>,
-    across every repo GitHub indexes — not just this account's own repos).
-    Returns None on failure so the label is simply omitted."""
+def _github_token():
+    """A token for the GraphQL API (which requires auth even for public
+    data). Prefers GITHUB_TOKEN (set by the Actions workflow), falls back
+    to the local gh CLI's token for manual runs."""
+    token = os.environ.get("GITHUB_TOKEN")
+    if token:
+        return token
+    try:
+        return subprocess.run(
+            ["gh", "auth", "token"], capture_output=True, text=True, timeout=5, check=True
+        ).stdout.strip()
+    except Exception:
+        return None
+
+
+def fetch_join_year():
+    """Account creation year, to know how far back to sum contributions.
+    Falls back to the real join year (2018) on any failure."""
     try:
         req = urllib.request.Request(
-            f"https://api.github.com/search/commits?q=author:{GITHUB_USER}&per_page=1",
+            f"https://api.github.com/users/{GITHUB_USER}",
             headers={"Accept": "application/vnd.github+json", "User-Agent": "gen-terminal-script"},
         )
         with urllib.request.urlopen(req, timeout=10) as resp:
             data = json.load(resp)
-        return data["total_count"]
+        return int(data["created_at"][:4])
+    except Exception:
+        return 2018
+
+
+def fetch_total_commits(join_year):
+    """Real all-time commit count, from GitHub's own contribution data
+    (GraphQL contributionsCollection), summed year by year since join_year.
+    This is de-duplicated per repo — unlike the commit search API, it
+    doesn't count the same commit again in every unrelated fork that
+    copied it. Returns None (label omitted) if no token is available or
+    any call fails, rather than showing a wrong number."""
+    token = _github_token()
+    if not token:
+        print("warning: no GitHub token available, omitting commit count", file=sys.stderr)
+        return None
+
+    query = """
+    query($login: String!, $from: DateTime!, $to: DateTime!) {
+      user(login: $login) {
+        contributionsCollection(from: $from, to: $to) {
+          commitContributionsByRepository(maxRepositories: 100) {
+            contributions { totalCount }
+          }
+        }
+      }
+    }
+    """
+    total = 0
+    current_year = datetime.now(timezone.utc).year
+    try:
+        for year in range(join_year, current_year + 1):
+            body = json.dumps({
+                "query": query,
+                "variables": {
+                    "login": GITHUB_USER,
+                    "from": f"{year}-01-01T00:00:00Z",
+                    "to": f"{year}-12-31T23:59:59Z",
+                },
+            }).encode()
+            req = urllib.request.Request(
+                "https://api.github.com/graphql",
+                data=body,
+                headers={
+                    "Authorization": f"bearer {token}",
+                    "Content-Type": "application/json",
+                    "User-Agent": "gen-terminal-script",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                data = json.load(resp)
+            repos = data["data"]["user"]["contributionsCollection"]["commitContributionsByRepository"]
+            total += sum(r["contributions"]["totalCount"] for r in repos)
+        return total
     except Exception as exc:
         print(f"warning: commit count fetch failed ({exc}), omitting label", file=sys.stderr)
         return None
 
 
-_status_outputs = [fetch_status_line()]
+CONTRIBUTIONS = [
+    ("ubuntu", "ubuntu/app-center"),
+    ("ggml-org", "ggml-org/whisper.cpp"),
+    ("crewAIInc", "crewAIInc/crewAI"),
+    ("langchain-ai", "langchain-ai/langchain"),
+    ("huggingface", "huggingface/sentence-transformers"),
+    ("tensorflow", "tensorflow/probability"),
+]
+_LABEL_W = max(len(org) for org, _ in CONTRIBUTIONS) + 4
+_contributions_outputs = [
+    (f"{org.ljust(_LABEL_W)}{repo}", f"https://github.com/{repo}")
+    for org, repo in CONTRIBUTIONS
+]
+
+_status_outputs = [fetch_status_line(), f"as of {now_ist_string()}"]
 _weekly_activity = fetch_activity_weeks()
 if _weekly_activity is not None:
-    _status_outputs.append(("__spark__", _weekly_activity, fetch_total_commits()))
+    _status_outputs.append(("__spark__", _weekly_activity, fetch_total_commits(fetch_join_year())))
 
 session = [
     ("whoami", ["salman-faroz — AI Researcher"]),
     ("cat role.txt", ["Deep Learning · Applied ML · research → production"]),
-    ("locate --self", [
-        "Karur, Tamil Nadu, India",
-        ("__radar__", "10.9600°N  78.0750°E"),
-    ]),
+    ("./status.sh", _status_outputs),
+    ("cat contributions.txt", _contributions_outputs),
     ("cat contact.txt", [
         ("portfolio   stsfaroz.github.io", "https://stsfaroz.github.io/"),
         ("linkedin    linkedin.com/in/salman-faroz", "https://www.linkedin.com/in/salman-faroz"),
         ("mail        stsfaroz@gmail.com", "mailto:stsfaroz@gmail.com"),
     ]),
-    ("./status.sh", _status_outputs),
+    ("locate --self", [
+        "Karur, Tamil Nadu, India",
+        ("__radar__", "10.9600°N  78.0750°E"),
+    ]),
 ]
 
 
@@ -291,10 +382,7 @@ for cmd_i, (cmd, outputs) in enumerate(session):
             )
 
             elements.append(f'''
-<text x="{PAD_X}" y="{caption_y:.1f}" font-size="10.5" fill="{FG}" opacity="0">
-  <animate attributeName="opacity" from="0" to="0.55" begin="{out_start:.2f}s" dur="0.3s" fill="freeze"/>
-  public activity
-</text>
+<text x="{PAD_X}" y="{caption_y:.1f}" font-size="10.5" fill="{FG}" opacity="0"><animate attributeName="opacity" from="0" to="0.55" begin="{out_start:.2f}s" dur="0.3s" fill="freeze"/>public activity</text>
 <g opacity="0">
   <animate attributeName="opacity" from="0" to="1" begin="{out_start:.2f}s" dur="0.3s" fill="freeze"/>
   {grid_rows}{grid_cols}
@@ -308,11 +396,11 @@ for cmd_i, (cmd, outputs) in enumerate(session):
 </circle>''')
 
             if total_commits is not None:
-                elements.append(f'''
-<text x="{pts[-1][0]+9:.1f}" y="{pts[-1][1]+3.5:.1f}" font-size="10.5" fill="{GREEN}" opacity="0">
-  <animate attributeName="opacity" from="0" to="1" begin="{out_start+draw_dur:.2f}s" dur="0.15s" fill="freeze"/>
-  {total_commits:,} commits, all-time
-</text>''')
+                elements.append(
+                    f'<text x="{pts[-1][0]+9:.1f}" y="{pts[-1][1]+3.5:.1f}" font-size="10.5" fill="{GREEN}" opacity="0">'
+                    f'<animate attributeName="opacity" from="0" to="1" begin="{out_start+draw_dur:.2f}s" dur="0.15s" fill="freeze"/>'
+                    f'{total_commits:,} commits, all-time</text>'
+                )
 
             t = out_start + draw_dur + 0.25
             y = top + chart_h + LINE_H * 0.6
@@ -324,11 +412,11 @@ for cmd_i, (cmd, outputs) in enumerate(session):
         else:
             text = out_line
 
-        elements.append(f'''
-<text x="{PAD_X}" y="{y}" font-size="{FONT_SIZE}" fill="{FG}" opacity="0">
-  <animate attributeName="opacity" from="0" to="1" begin="{out_start:.2f}s" dur="{OUTPUT_FADE:.2f}s" fill="freeze"/>
-  {esc(text)}
-</text>''')
+        elements.append(
+            f'<text x="{PAD_X}" y="{y}" font-size="{FONT_SIZE}" fill="{FG}" opacity="0">'
+            f'<animate attributeName="opacity" from="0" to="1" begin="{out_start:.2f}s" dur="{OUTPUT_FADE:.2f}s" fill="freeze"/>'
+            f'{esc(text)}</text>'
+        )
         t += OUTPUT_FADE * 0.35
         y += LINE_H
 
@@ -347,10 +435,10 @@ elements.append(f'''
 y += 22
 total_height = y + 14
 
-svg = f'''<svg width="{WIDTH}" height="{total_height:.0f}" viewBox="0 0 {WIDTH} {total_height:.0f}" xmlns="http://www.w3.org/2000/svg">
+svg = f'''<svg width="{WIDTH}" height="{total_height:.0f}" viewBox="0 0 {WIDTH} {total_height:.0f}" xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
 <defs>
 <style>
-  text {{ font-family: "Ubuntu Mono","DejaVu Sans Mono","JetBrains Mono",Consolas,monospace; }}
+  text {{ font-family: "Ubuntu Mono","DejaVu Sans Mono","JetBrains Mono",Consolas,monospace; white-space: pre; }}
 </style>
 <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
   <rect width="4" height="1" fill="#000000" opacity="0.5"/>

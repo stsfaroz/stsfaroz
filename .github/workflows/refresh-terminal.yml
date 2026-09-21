@@ -2,8 +2,8 @@ name: Refresh terminal.svg
 
 on:
   schedule:
-    # every Monday 06:00 UTC
-    - cron: "0 6 * * 1"
+    # daily 00:30 UTC (~6:00 AM IST)
+    - cron: "30 0 * * *"
   push:
     branches: [main]
     paths:
@@ -25,6 +25,8 @@ jobs:
           python-version: "3.12"
 
       - name: Regenerate assets/terminal.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/gen_terminal.py
 
       - name: Commit if changed
