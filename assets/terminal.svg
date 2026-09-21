@@ -163,15 +163,15 @@
   <line x1="22" y1="451.5" x2="242.0" y2="451.5" stroke="#8ae234" stroke-opacity="0.15" stroke-width="1"/><line x1="22" y1="466.5" x2="242.0" y2="466.5" stroke="#8ae234" stroke-opacity="0.15" stroke-width="1"/><line x1="22" y1="481.5" x2="242.0" y2="481.5" stroke="#8ae234" stroke-opacity="0.15" stroke-width="1"/><line x1="77.0" y1="451.5" x2="77.0" y2="481.5" stroke="#8ae234" stroke-opacity="0.1" stroke-width="1"/><line x1="132.0" y1="451.5" x2="132.0" y2="481.5" stroke="#8ae234" stroke-opacity="0.1" stroke-width="1"/><line x1="187.0" y1="451.5" x2="187.0" y2="481.5" stroke="#8ae234" stroke-opacity="0.1" stroke-width="1"/>
 </g>
 <g clip-path="url(#spark-clip4)">
-  <polygon points="22.0,481.5 53.4,481.5 84.9,481.5 116.3,481.5 147.7,481.5 179.1,481.5 210.6,468.6 242.0,451.5 242.0,481.5 22.0,481.5" fill="#8ae234" opacity="0.12"/>
-  <polyline points="22.0,481.5 53.4,481.5 84.9,481.5 116.3,481.5 147.7,481.5 179.1,481.5 210.6,468.6 242.0,451.5" fill="none" stroke="#8ae234" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" filter="url(#spark-glow4)"/>
+  <polygon points="22.0,481.5 53.4,481.5 84.9,481.5 116.3,481.5 147.7,481.5 179.1,481.5 210.6,471.5 242.0,451.5 242.0,481.5 22.0,481.5" fill="#8ae234" opacity="0.12"/>
+  <polyline points="22.0,481.5 53.4,481.5 84.9,481.5 116.3,481.5 147.7,481.5 179.1,481.5 210.6,471.5 242.0,451.5" fill="none" stroke="#8ae234" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" filter="url(#spark-glow4)"/>
 </g>
 <circle cx="242.0" cy="451.5" r="3" fill="#8ae234" filter="url(#spark-glow4)" opacity="0">
   <animate attributeName="opacity" from="0" to="1" begin="9.59s" dur="0.15s" fill="freeze"/>
 </circle>
 <text x="251.0" y="455.0" font-size="10.5" fill="#8ae234" opacity="0">
   <animate attributeName="opacity" from="0" to="1" begin="9.59s" dur="0.15s" fill="freeze"/>
-  1,379 commits, all-time
+  1,388 commits, all-time
 </text>
 <text x="22" y="502.75" font-size="14.5"><tspan fill="#8ae234" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="10.39s" dur="0.06s" fill="freeze"/>salman@ubuntu</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="10.39s" dur="0.06s" fill="freeze"/>:</tspan><tspan fill="#729fcf" font-weight="600" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="10.39s" dur="0.06s" fill="freeze"/>~</tspan><tspan fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="10.39s" dur="0.06s" fill="freeze"/>$ </tspan></text>
 <rect x="170.8" y="491.8" width="7.2" height="15" fill="#eeeeec" opacity="0">
