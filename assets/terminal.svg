@@ -96,15 +96,15 @@
   <animate attributeName="opacity" values="0;1;0;1;0;1;0" keyTimes="0;0.01;0.17;0.34;0.5;0.67;1"
            begin="3.61s" dur="0.55s" fill="freeze"/>
 </rect>
-<text x="170.8" y="162.5" font-size="14.5" fill="#eeeeec" clip-path="url(#clip2)">./status.sh</text><text x="22" y="187.5" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="4.60s" dur="0.22s" fill="freeze"/>33 repos · 48 followers · still building.</text><text x="22" y="212.5" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="4.68s" dur="0.22s" fill="freeze"/>as of Wed Sep 23 10:27 IST 2026</text>
+<text x="170.8" y="162.5" font-size="14.5" fill="#eeeeec" clip-path="url(#clip2)">./status.sh</text><text x="22" y="187.5" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="4.60s" dur="0.22s" fill="freeze"/>33 repos · 48 followers · still building.</text><text x="22" y="212.5" font-size="14.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="1" begin="4.68s" dur="0.22s" fill="freeze"/>as of Thu Sep 24 10:37 IST 2026</text>
 <text x="22" y="245.5" font-size="10.5" fill="#eeeeec" opacity="0"><animate attributeName="opacity" from="0" to="0.55" begin="4.76s" dur="0.3s" fill="freeze"/>public activity</text>
 <g opacity="0">
   <animate attributeName="opacity" from="0" to="1" begin="4.76s" dur="0.3s" fill="freeze"/>
   <line x1="22" y1="259.5" x2="242.0" y2="259.5" stroke="#8ae234" stroke-opacity="0.15" stroke-width="1"/><line x1="22" y1="274.5" x2="242.0" y2="274.5" stroke="#8ae234" stroke-opacity="0.15" stroke-width="1"/><line x1="22" y1="289.5" x2="242.0" y2="289.5" stroke="#8ae234" stroke-opacity="0.15" stroke-width="1"/><line x1="77.0" y1="259.5" x2="77.0" y2="289.5" stroke="#8ae234" stroke-opacity="0.1" stroke-width="1"/><line x1="132.0" y1="259.5" x2="132.0" y2="289.5" stroke="#8ae234" stroke-opacity="0.1" stroke-width="1"/><line x1="187.0" y1="259.5" x2="187.0" y2="289.5" stroke="#8ae234" stroke-opacity="0.1" stroke-width="1"/>
 </g>
 <g clip-path="url(#spark-clip2)">
-  <polygon points="22.0,289.5 53.4,289.5 84.9,289.5 116.3,289.5 147.7,289.5 179.1,284.5 210.6,287.0 242.0,259.5 242.0,289.5 22.0,289.5" fill="#8ae234" opacity="0.12"/>
-  <polyline points="22.0,289.5 53.4,289.5 84.9,289.5 116.3,289.5 147.7,289.5 179.1,284.5 210.6,287.0 242.0,259.5" fill="none" stroke="#8ae234" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" filter="url(#spark-glow2)"/>
+  <polygon points="22.0,289.5 53.4,289.5 84.9,289.5 116.3,289.5 147.7,289.5 179.1,282.0 210.6,289.5 242.0,259.5 242.0,289.5 22.0,289.5" fill="#8ae234" opacity="0.12"/>
+  <polyline points="22.0,289.5 53.4,289.5 84.9,289.5 116.3,289.5 147.7,289.5 179.1,282.0 210.6,289.5 242.0,259.5" fill="none" stroke="#8ae234" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" filter="url(#spark-glow2)"/>
 </g>
 <circle cx="242.0" cy="259.5" r="3" fill="#8ae234" filter="url(#spark-glow2)" opacity="0">
   <animate attributeName="opacity" from="0" to="1" begin="5.66s" dur="0.15s" fill="freeze"/>
