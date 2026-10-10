@@ -129,8 +129,12 @@ def fetch_total_commits(join_year):
     (GraphQL contributionsCollection), summed year by year since join_year.
     This is de-duplicated per repo — unlike the commit search API, it
     doesn't count the same commit again in every unrelated fork that
-    copied it. Returns None (label omitted) if no token is available or
-    any call fails, rather than showing a wrong number."""
+    copied it. Includes restrictedContributionsCount (commits to private
+    repos, which GitHub excludes from commitContributionsByRepository
+    entirely) — without it the total silently undercounts anyone who
+    does real work in private repos. Returns None (label omitted) if no
+    token is available or any call fails, rather than showing a wrong
+    number."""
     token = _github_token()
     if not token:
         print("warning: no GitHub token available, omitting commit count", file=sys.stderr)
@@ -140,6 +144,7 @@ def fetch_total_commits(join_year):
     query($login: String!, $from: DateTime!, $to: DateTime!) {
       user(login: $login) {
         contributionsCollection(from: $from, to: $to) {
+          restrictedContributionsCount
           commitContributionsByRepository(maxRepositories: 100) {
             contributions { totalCount }
           }
@@ -170,8 +175,10 @@ def fetch_total_commits(join_year):
             )
             with urllib.request.urlopen(req, timeout=10) as resp:
                 data = json.load(resp)
-            repos = data["data"]["user"]["contributionsCollection"]["commitContributionsByRepository"]
+            collection = data["data"]["user"]["contributionsCollection"]
+            repos = collection["commitContributionsByRepository"]
             total += sum(r["contributions"]["totalCount"] for r in repos)
+            total += collection["restrictedContributionsCount"]
         return total
     except Exception as exc:
         print(f"warning: commit count fetch failed ({exc}), omitting label", file=sys.stderr)
@@ -337,8 +344,13 @@ for cmd_i, (cmd, outputs) in enumerate(session):
             continue
 
         if isinstance(out_line, tuple) and out_line[0] == "__spark__":
-            counts = out_line[1]
+            weekly_counts = out_line[1]
             total_commits = out_line[2]
+            counts = []
+            running = 0
+            for c in weekly_counts:
+                running += c
+                counts.append(running)
             n = len(counts)
             chart_w, chart_h = 220.0, 30.0
             max_v = max(max(counts), 1)
@@ -382,7 +394,7 @@ for cmd_i, (cmd, outputs) in enumerate(session):
             )
 
             elements.append(f'''
-<text x="{PAD_X}" y="{caption_y:.1f}" font-size="10.5" fill="{FG}" opacity="0"><animate attributeName="opacity" from="0" to="0.55" begin="{out_start:.2f}s" dur="0.3s" fill="freeze"/>public activity</text>
+<text x="{PAD_X}" y="{caption_y:.1f}" font-size="10.5" fill="{FG}" opacity="0"><animate attributeName="opacity" from="0" to="0.55" begin="{out_start:.2f}s" dur="0.3s" fill="freeze"/>public activity, cumulative</text>
 <g opacity="0">
   <animate attributeName="opacity" from="0" to="1" begin="{out_start:.2f}s" dur="0.3s" fill="freeze"/>
   {grid_rows}{grid_cols}
